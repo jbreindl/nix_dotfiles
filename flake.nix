@@ -17,15 +17,13 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      homeConfigurations."jbreindl" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./hosts/endeavouros.nix];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+        modules = [ ./hosts/home.nix ];
+      };
+      homeConfigurations."work" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./hosts/work.nix ];
       };
     };
 }
