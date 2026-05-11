@@ -25,6 +25,14 @@
     zsh
     tmux
     uv
+    direnv
+    nixd
+    cargo
+    nixfmt
+    rust-analyzer
+    clippy
+    rustc
+    rustfmt
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -59,7 +67,7 @@
   #  /etc/profiles/per-user/jbreindl/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-        EDITOR="nvim";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
