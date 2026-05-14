@@ -6,7 +6,11 @@
     ../modules/cli.nix
     ../modules/desktop.nix
   ];
-
+  targets = {
+    # Make home-manager work better on non-NixOS
+    genericLinux.enable = true;
+    genericLinux.gpu.enable = true;
+  };
   home.packages = with pkgs; [
     discord
     steam
