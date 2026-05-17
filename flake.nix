@@ -7,9 +7,14 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+      # backupFileExtension = "backup";
     };
     nixgl = {
       url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-wallpaper = {
+      url = "github:lunik1/nix-wallpaper";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -19,6 +24,7 @@
       nixpkgs,
       home-manager,
       nixgl,
+      nix-wallpaper,
       ...
     }:
     let
@@ -27,7 +33,10 @@
         inherit system;
         config.allowUnfree = true;
       };
-      sharedArgs = { inherit nixgl; };
+      sharedArgs = {
+        inherit nixgl;
+        inherit nix-wallpaper;
+      };
     in
     {
       homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
