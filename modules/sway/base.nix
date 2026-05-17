@@ -131,6 +131,11 @@ in
               before-sleep '${lockCmd}'
           '';
         }
+
+        { command = "nm-applet --indicator "; }
+        { command = "blueman-applet"; }
+        { command = "swaync"; }
+
       ];
 
       # ── Status bar ──────────────────────────────────────────────────────
@@ -252,6 +257,7 @@ in
           Escape = "mode default";
         };
       };
+
     };
 
     # ── Raw config for things the module doesn't expose ───────────────────
@@ -266,6 +272,7 @@ in
   };
 
   # ── Packages needed at runtime ─────────────────────────────────────────
+  # NOTE: on non nixos systems, `swaylock` needs to be installed using the system package manager
   home.packages = with pkgs; [
     swayidle
     swaynotificationcenter
