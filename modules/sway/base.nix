@@ -7,20 +7,10 @@
   ...
 }:
 
-# ============================================================
-# Notes on things that couldn't be fully converted:
-#
-#   - `include /etc/sway/config-vars.d/*` and `include /etc/sway/config.d/*`
-#     are system-level includes. On NixOS, enable programs.sway at the system
-#     level so those dirs are populated. They can't be replicated in Home Manager.
-#
-# ============================================================
-
 let
   modifier = "Mod4";
 
   # Wallpaper path — adjust per machine via a host-specific override
-  # wallpaper = "/home/jbreindl/Pictures/wallpapers/house.jpg";
   wallpaper-pkg = nix-wallpaper.packages.${pkgs.system}.default.override {
     preset = "solarized-light";
   };
@@ -39,7 +29,6 @@ in
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
-    # package = nixgl.auto.nixGLDefault pkgs.sway;
 
     config = {
       modifier = modifier;
@@ -142,7 +131,6 @@ in
               before-sleep '${lockCmd}'
           '';
         }
-        # Add entries from your ./autostarts file here, e.g.:
       ];
 
       # ── Status bar ──────────────────────────────────────────────────────
