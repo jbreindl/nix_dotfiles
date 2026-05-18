@@ -23,9 +23,9 @@
       warp-on-scroll = false;
       format = "{value}: {icon}";
       format-icons = {
-        urgent = "";
-        focused = "";
-        default = "";
+        urgent = "";
+        focused = "";
+        default = "";
       };
     };
 
