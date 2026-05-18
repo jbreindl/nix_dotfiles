@@ -138,14 +138,6 @@ in
 
       ];
 
-      # ── Status bar ──────────────────────────────────────────────────────
-      bars = [
-        {
-          position = "top";
-          command = "waybar";
-          trayOutput = "HDMI-A-1";
-        }
-      ];
 
       # ── Floating modifier ────────────────────────────────────────────────
       floating.modifier = modifier;
