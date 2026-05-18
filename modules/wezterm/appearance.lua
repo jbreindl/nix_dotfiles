@@ -10,6 +10,7 @@ function appearance_config.apply(config)
     -- color scheme
     config.color_scheme = "Solarized Light (Gogh)"
     config.enable_tab_bar = true
+    config.enable_wayland = false
 
     -- transparency
     config.window_background_opacity = 1.0

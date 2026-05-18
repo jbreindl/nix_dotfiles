@@ -159,19 +159,21 @@ in
     };
 
     extraConfig = ''
-      # ── Resize submap ────────────────────────────────────────────────────
-      submap = resize
-      binde = , H, resizeactive, -10 0
-      binde = , L, resizeactive, 10 0
-      binde = , K, resizeactive, 0 -10
-      binde = , J, resizeactive, 0 10
-      bind  = , Return, submap, reset
-      bind  = , Escape, submap, reset
-      submap = reset
 
-      # ── Clamshell mode ───────────────────────────────────────────────────
-      bindl = , switch:on:Lid Switch,  exec, hyprctl keyword monitor "eDP-1, disable"
-      bindl = , switch:off:Lid Switch, exec, hyprctl keyword monitor "eDP-1, preferred, auto, 1"
+        # ── Clamshell mode ───────────────────────────────────────────────────
+        bindl = , switch:on:Lid Switch,  exec, hyprctl keyword monitor "eDP-1, disable"
+        bindl = , switch:off:Lid Switch, exec, hyprctl keyword monitor "eDP-1, preferred, auto, 1"
+
+      animations {
+          enabled = true
+          animation = windows, 1, 3, default    # Windows animation
+          animation = windowsOut, 1, 3, default  # Windows out animation
+          animation = border, 1, 3, default          # Border animation
+          animation = borderangle, 1, 3, default      # Border angle animation
+          animation = fade, 1, 3, default              # Fade animation
+          animation = workspaces, 1, 3, default       # Workspaces animation
+      }
+
     '';
   };
 
