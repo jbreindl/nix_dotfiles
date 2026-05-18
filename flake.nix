@@ -46,6 +46,7 @@
       };
       homeConfigurations."work" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = sharedArgs;
         modules = [ ./hosts/work.nix ];
       };
     };

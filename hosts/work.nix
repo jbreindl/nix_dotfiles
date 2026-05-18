@@ -4,5 +4,12 @@
   imports = [
         ../modules/desktop.nix
         ../modules/cli.nix
+        ../modules/sway/base.nix
+        ../modules/sway/waybar.nix
     ];
+  targets = {
+    # Make home-manager work better on non-NixOS
+    genericLinux.enable = true;
+    genericLinux.gpu.enable = true;
+  };
 }
