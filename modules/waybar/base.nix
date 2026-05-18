@@ -63,7 +63,11 @@
             phone = "";
             portable = "";
             car = "";
-            default = [ "" "" "" ];
+            default = [
+              ""
+              ""
+              ""
+            ];
           };
           on-click = "pavucontrol";
         };
@@ -71,7 +75,13 @@
         "battery" = {
           format = "{capacity}% {icon}";
           format-charging = "{capacity}% ";
-          format-icons = [ "" "" "" "" "" ];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
 
         "custom/notification" = {
@@ -123,12 +133,8 @@
           padding: 0 5px;
           background: transparent;
           color: #586e75;
-          border-bottom: 3px solid transparent;
       }
 
-      #workspaces button.active {
-          border-bottom: 10px solid black;
-      }
 
       #workspaces button.hover {
           box-shadow: inherit;

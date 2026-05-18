@@ -5,9 +5,9 @@
   imports = [
     ../modules/cli.nix
     ../modules/desktop.nix
-    ../modules/sway/base.nix
     ../modules/waybar/base.nix
-    ../modules/waybar/sway.nix
+    ../modules/waybar/hyprland.nix
+    ../modules/hyprland/base.nix
   ];
   targets = {
     # Make home-manager work better on non-NixOS

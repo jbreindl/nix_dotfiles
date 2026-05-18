@@ -1,18 +1,15 @@
 { config, pkgs, ... }:
 {
-  imports = [
-    ./hyprland/base.nix
-  ];
 
   programs.wezterm = {
     enable = true;
   };
 
   home.file = {
-    ".config/wezterm/wezterm.lua".source      = ./wezterm/wezterm.lua;
-    ".config/wezterm/appearance.lua".source   = ./wezterm/appearance.lua;
+    ".config/wezterm/wezterm.lua".source = ./wezterm/wezterm.lua;
+    ".config/wezterm/appearance.lua".source = ./wezterm/appearance.lua;
     ".config/wezterm/multiplexing.lua".source = ./wezterm/multiplexing.lua;
-    ".config/wezterm/tabline.lua".source      = ./wezterm/tabline.lua;
+    ".config/wezterm/tabline.lua".source = ./wezterm/tabline.lua;
   };
 
   home.sessionVariables = {
