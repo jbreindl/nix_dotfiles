@@ -65,6 +65,7 @@ in
         "nm-applet --indicator"
         "blueman-applet"
         "swaync"
+        "waybar"
       ];
 
       # ── Keybindings ───────────────────────────────────────────────────────
@@ -178,8 +179,12 @@ in
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ wallpaper ];
-      wallpaper = [ ", ${wallpaper}" ];
+      wallpaper = [
+        {
+          monitor = "*";
+          path = wallpaper;
+        }
+      ];
     };
   };
 
