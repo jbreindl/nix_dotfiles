@@ -5,6 +5,7 @@
         ../modules/desktop.nix
         ../modules/cli.nix
         ../modules/sway/base.nix
+        ../modules/sway/sway-work.nix
         ../modules/sway/waybar.nix
     ];
   targets = {

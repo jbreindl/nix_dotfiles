@@ -236,6 +236,8 @@ in
         "${modifier}+Shift+Ctrl+space" = "input type:keyboard xkb_switch_layout next";
       };
 
+      bars = [];
+
       # ── Resize mode ──────────────────────────────────────────────────────
       modes = {
         resize = {
