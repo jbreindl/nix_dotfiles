@@ -45,7 +45,7 @@ in
       };
 
       decoration = {
-        rounding = 0;
+        rounding = 5;
       };
 
       # ── Layout ───────────────────────────────────────────────────────────
@@ -61,7 +61,6 @@ in
 
       # ── Startup ──────────────────────────────────────────────────────────
       "exec-once" = [
-        "hyprpaper"
         "hypridle"
         "nm-applet --indicator"
         "blueman-applet"

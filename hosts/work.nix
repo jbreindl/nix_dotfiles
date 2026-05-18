@@ -6,7 +6,8 @@
         ../modules/cli.nix
         ../modules/sway/base.nix
         ../modules/sway/sway-work.nix
-        ../modules/sway/waybar.nix
+        ../modules/waybar/base.nix
+        ../modules/waybar/sway.nix
     ];
   targets = {
     # Make home-manager work better on non-NixOS
