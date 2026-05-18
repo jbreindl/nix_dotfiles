@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+  imports = [ 
+        ./hyprland/base.nix 
+    ./sway/waybar.nix
+    ];
 
   programs.wezterm = {
     enable = true;
