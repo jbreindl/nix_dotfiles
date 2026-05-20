@@ -27,6 +27,7 @@
     uv
     direnv
     nixd
+    nil
     cargo
     nixfmt
     rust-analyzer
@@ -34,6 +35,7 @@
     rustc
     rustfmt
   ];
+  imports = [./zsh.nix];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
