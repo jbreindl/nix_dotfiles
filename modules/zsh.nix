@@ -25,6 +25,12 @@
       if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
         . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
       fi
+      path+=(
+      ~/.local/bin
+      ~/.nix-profile/bin
+      ~/.nvm/versions/node/v20.19.3/bin/
+      )
+      export PATH
     '';
   };
   programs.zoxide = {
