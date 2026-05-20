@@ -45,7 +45,7 @@ in
         border_size = 2;
         "col.active_border" = "rgb(268bd2)";
         "col.inactive_border" = "rgb(93a1a1)";
-        layout = "dwindle";
+        layout = "master";
       };
 
       decoration = {
@@ -65,6 +65,7 @@ in
 
       # ── Startup ──────────────────────────────────────────────────────────
       "exec-once" = [
+        "waybar"
         "hypridle"
         "nm-applet --indicator"
         "blueman-applet"
@@ -160,13 +161,15 @@ in
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
+
+      # Clamshell mode — lock + disable internal display on lid close
+      bindl = [
+        ", switch:on:Lid Switch,  exec, ${lockCmd} && hyprctl keyword monitor \"eDP-1, disable\""
+        ", switch:off:Lid Switch, exec, hyprctl keyword monitor \"eDP-1, preferred, auto, 1\""
+      ];
     };
 
     extraConfig = ''
-
-        # ── Clamshell mode ───────────────────────────────────────────────────
-        bindl = , switch:on:Lid Switch,  exec, hyprctl keyword monitor "eDP-1, disable"
-        bindl = , switch:off:Lid Switch, exec, hyprctl keyword monitor "eDP-1, preferred, auto, 1"
 
       animations {
           enabled = true
