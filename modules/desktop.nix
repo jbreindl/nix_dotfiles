@@ -37,6 +37,7 @@
     networkmanager
     networkmanagerapplet
     blueman
+    ghostty
   ];
 
 }
