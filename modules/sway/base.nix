@@ -26,6 +26,11 @@ let
 
 in
 {
+  imports = [
+    ../waybar/base.nix
+    ../waybar/sway.nix
+  ];
+
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;

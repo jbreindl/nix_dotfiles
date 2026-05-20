@@ -1,6 +1,9 @@
 { ... }:
 
 {
+  imports = [
+        ./base.nix
+    ];
   wayland.windowManager.sway = {
     config = {
       assigns = {

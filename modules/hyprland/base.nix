@@ -18,6 +18,10 @@ let
 
 in
 {
+    imports = [
+        ../waybar/base.nix
+        ../waybar/hyprland.nix
+    ];
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -65,7 +69,7 @@ in
         "nm-applet --indicator"
         "blueman-applet"
         "swaync"
-        "waybar"
+        
       ];
 
       # ── Keybindings ───────────────────────────────────────────────────────

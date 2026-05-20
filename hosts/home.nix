@@ -5,8 +5,6 @@
   imports = [
     ../modules/cli.nix
     ../modules/desktop.nix
-    ../modules/waybar/base.nix
-    ../modules/waybar/hyprland.nix
     ../modules/hyprland/base.nix
   ];
   targets = {
