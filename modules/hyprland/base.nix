@@ -18,12 +18,13 @@ let
 
 in
 {
-    imports = [
-        ../waybar/base.nix
-        ../waybar/hyprland.nix
-    ];
+  imports = [
+    ../waybar/base.nix
+    ../waybar/hyprland.nix
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = true;
 
     settings = {
       "$mod" = "SUPER";
@@ -65,18 +66,17 @@ in
 
       # ── Startup ──────────────────────────────────────────────────────────
       "exec-once" = [
-        "waybar"
         "hypridle"
         "nm-applet --indicator"
         "blueman-applet"
         "swaync"
-        
+
       ];
 
       # ── Keybindings ───────────────────────────────────────────────────────
       bind = [
         # Basics
-        "$mod, Return, exec, wezterm"
+        "$mod, Return, exec, ghostty"
         "$mod SHIFT, Q, killactive"
         "$mod, D, exec, rofi -combi-modi drun -show combi -show-icons"
         "$mod SHIFT, R, exec, hyprctl reload"
