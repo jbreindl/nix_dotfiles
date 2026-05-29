@@ -34,9 +34,8 @@
     clippy
     rustc
     rustfmt
-    helix
   ];
-  imports = [ ./zsh.nix ];
+  imports = [ ./zsh.nix ./helix.nix];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -69,9 +68,6 @@
   #
   #  /etc/profiles/per-user/jbreindl/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
