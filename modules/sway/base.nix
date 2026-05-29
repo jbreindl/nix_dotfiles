@@ -38,7 +38,6 @@ in
     config = {
       modifier = modifier;
 
-      terminal = "wezterm";
       menu = "rofi -combi-modi drun -show combi -show-icons";
 
       fonts = {
@@ -143,14 +142,13 @@ in
 
       ];
 
-
       # ── Floating modifier ────────────────────────────────────────────────
       floating.modifier = modifier;
 
       # ── Key bindings ─────────────────────────────────────────────────────
       keybindings = lib.mkOptionDefault {
         # Basics
-        "${modifier}+Return" = "exec wezterm";
+        "${modifier}+Return" = "exec ghostty";
         "${modifier}+Shift+q" = "kill";
         "${modifier}+d" = "exec rofi -combi-modi drun -show combi -show-icons";
         "${modifier}+Shift+r" = "reload";
@@ -241,7 +239,7 @@ in
         "${modifier}+Shift+Ctrl+space" = "input type:keyboard xkb_switch_layout next";
       };
 
-      bars = [];
+      bars = [ ];
 
       # ── Resize mode ──────────────────────────────────────────────────────
       modes = {
