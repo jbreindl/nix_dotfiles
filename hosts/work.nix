@@ -4,8 +4,9 @@
   imports = [
     ../modules/cli.nix
     ../modules/desktop.nix
-    ../modules/sway/sway-work.nix
-    ];
+    # ../modules/sway/sway-work.nix
+    ../modules/hyprland/base.nix
+  ];
   targets = {
     # Make home-manager work better on non-NixOS
     genericLinux.enable = true;
