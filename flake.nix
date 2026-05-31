@@ -7,7 +7,6 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-      # backupFileExtension = "backup";
     };
     nixgl = {
       url = "github:nix-community/nixGL";
@@ -39,6 +38,7 @@
       };
     in
     {
+      home-manager.backupFileExtension = "backup";
       homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = sharedArgs;
