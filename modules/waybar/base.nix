@@ -112,7 +112,7 @@
       * {
           border: none;
           border-radius: 10px;
-          font-family: "JetBrains Mono", "Symbols Nerd Font Mono";
+          font-family: "Fira Code Mono", "Symbols Nerd Font Mono";
           font-size: 16px;
           min-height: 0;
       }
@@ -125,15 +125,15 @@
       .modules-left,
       .modules-center,
       .modules-right {
-          background: #fdf6e3;
+          background: #3b4252;
           border-radius: 10px;
-          padding: 0 8px 0 0px;
+          padding: 4px 8px 4px 8px;
       }
 
       #workspaces button {
           padding: 0 5px;
           background: transparent;
-          color: #586e75;
+          color: #ffffff;
       }
 
 
@@ -146,6 +146,7 @@
       #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray {
           padding: 0 10px;
           margin: 0 0px;
+          color: #ffffff;
       }
 
       #battery.charging {
