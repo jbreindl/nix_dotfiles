@@ -1,19 +1,21 @@
 { config, pkgs, ... }:
 {
-  home.username = "jbreindl";
-  home.homeDirectory = "/home/jbreindl/";
+  home.username = "jbr";
+  home.homeDirectory = "/home/jbr/";
   imports = [
     ../modules/cli.nix
     ../modules/desktop.nix
     ../modules/hyprland/base.nix
   ];
-  targets = {
-    # Make home-manager work better on non-NixOS
-    genericLinux.enable = true;
-    genericLinux.gpu.enable = true;
-  };
   home.packages = with pkgs; [
     discord
     steam
   ];
+  programs.git = {
+    enable = true;
+    settings.user = {
+      name = "Julius Breindl";
+      email = "juliusb1616@gmail.com";
+    };
+  };
 }
