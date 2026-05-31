@@ -3,7 +3,7 @@
   programs.helix.enable = true;
   programs.helix.defaultEditor = true;
   programs.helix.settings = {
-    theme = "solarized_light";
+    theme = "nord_transparent";
     editor = {
       true-color = true;
       line-number = "relative";
@@ -11,6 +11,18 @@
         render = true;
         character = "|";
       };
+    };
+  };
+  programs.helix.themes = {
+    solarized_light_transparent = {
+      "inherits" = "solarized_light";
+      "ui.background" = { };
+
+    };
+    nord_transparent = {
+      "inherits" = "nord";
+      "ui.background" = { };
+
     };
   };
   programs.helix.languages = {

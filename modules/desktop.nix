@@ -38,6 +38,13 @@
     networkmanagerapplet
     blueman
     ghostty
+    pulseaudio
+    pavucontrol
+  ];
+  gtk.iconTheme = "papirus";
+
+  imports = [
+    ./ghostty.nix
   ];
 
 }
