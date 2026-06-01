@@ -12,7 +12,7 @@
         margin-left = 8;
         margin-right = 8;
 
-        modules-center = [ "clock" ];
+        modules-left = [ "clock" ];
 
         "idle_inhibitor" = {
           format = "{icon}";
@@ -109,6 +109,7 @@
     };
 
     style = ''
+      /* Catppuccin Latte */
       * {
           border: none;
           border-radius: 10px;
@@ -119,13 +120,13 @@
 
       window#waybar {
           background: transparent;
-          color: #586e75;
+          color: #4c4f69;
       }
 
       .modules-left,
       .modules-center,
       .modules-right {
-          background: #3b4252;
+          background: #ccd0da;
           border-radius: 10px;
           padding: 4px 8px 4px 8px;
       }
@@ -133,36 +134,41 @@
       #workspaces button {
           padding: 0 5px;
           background: transparent;
-          color: #ffffff;
+          color: #4c4f69;
       }
-
 
       #workspaces button.hover {
           box-shadow: inherit;
           text-shadow: inherit;
-          border-bottom: 3px solid #2aa198;
+          border-bottom: 3px solid #179299;
+      }
+
+      #workspaces button.active,
+      #workspaces button.focused {
+          background: #ccd0da;
+          color: #8839ef;
       }
 
       #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray {
           padding: 0 10px;
           margin: 0 0px;
-          color: #ffffff;
+          color: #4c4f69;
       }
 
       #battery.charging {
-          color: #859900;
+          color: #40a02b;
       }
 
       #battery.warning:not(.charging) {
-          color: #dc322f;
+          color: #d20f39;
       }
 
       #network.disconnected {
-          color: #dc322f;
+          color: #d20f39;
       }
 
       #pulseaudio.muted {
-          color: #dc322f;
+          color: #d20f39;
       }
     '';
   };

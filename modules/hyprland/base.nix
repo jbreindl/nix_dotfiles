@@ -9,7 +9,7 @@
 
 let
   wallpaper-pkg = nix-wallpaper.packages.${pkgs.system}.default.override {
-    preset = "nord-night";
+    preset = "catppuccin-latte-rainbow";
   };
   wallpaper = "${wallpaper-pkg}/share/wallpapers/nixos-wallpaper.png";
   # swaylock must be installed via the system package manager on non-NixOS

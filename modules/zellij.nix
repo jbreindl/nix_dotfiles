@@ -3,7 +3,7 @@
   programs.zellij = {
     enable = true;
     settings = {
-      theme = "nord";
+      theme = "catppuccin-latte";
       default_mode = "locked";
       show_startup_tips = false;
       # TODO set up default layouts

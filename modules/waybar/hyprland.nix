@@ -2,7 +2,7 @@
 
 {
   programs.waybar.settings.mainBar = {
-    modules-left = [
+    modules-center = [
       "hyprland/workspaces"
       "hyprland/submap"
     ];
