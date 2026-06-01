@@ -21,12 +21,12 @@
       disable-scroll = true;
       all-outputs = false;
       warp-on-scroll = false;
-      format = "{id}: {icon}";
-      format-icons = {
-        urgent = "";
-        active = "";
-        default = "";
-      };
+      format = "{id}";
+      # format-icons = {
+      #   urgent = "";
+      #   active = "";
+      #   default = "";
+      # };
     };
 
     "hyprland/language" = {

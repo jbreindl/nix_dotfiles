@@ -21,12 +21,12 @@
       disable-scroll = true;
       all-outputs = false;
       warp-on-scroll = false;
-      format = "{value}: {icon}";
-      format-icons = {
-        urgent = "";
-        focused = "";
-        default = "";
-      };
+      format = "{value}";
+      # format-icons = {
+      #   urgent = "";
+      #   focused = "";
+      #   default = "";
+      # };
     };
 
     "sway/language" = {

@@ -145,7 +145,7 @@
 
       #workspaces button.active,
       #workspaces button.focused {
-          background: #ccd0da;
+          background: #acb0be;
           color: #8839ef;
       }
 
