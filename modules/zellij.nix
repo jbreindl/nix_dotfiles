@@ -2,7 +2,6 @@
 {
   programs.zellij = {
     enable = true;
-    enableZshIntegration = true;
     settings = {
       theme = "nord";
       default_mode = "locked";
@@ -10,8 +9,8 @@
       # TODO set up default layouts
     };
     # TODO: write in some keybinds once I have some ideas
-    extraConfig = ''
-      set up different modes
-    '';
+    # extraConfig = ''
+    #   set up different modes
+    # '';
   };
 }
