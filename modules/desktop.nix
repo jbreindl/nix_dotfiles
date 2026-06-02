@@ -45,6 +45,7 @@
 
   imports = [
     ./ghostty.nix
+    ./stylix.nix
   ];
 
 }

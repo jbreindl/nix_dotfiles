@@ -1,5 +1,8 @@
-{ ... }:
+{ config, ... }:
 
+let
+  inherit (config.lib.stylix) colors;
+in
 {
   programs.waybar = {
     enable = true;
@@ -109,7 +112,7 @@
     };
 
     style = ''
-      /* Catppuccin Latte */
+      /* Colors sourced from the Stylix base16 scheme (see modules/stylix.nix) */
       * {
           border: none;
           border-radius: 10px;
@@ -120,13 +123,13 @@
 
       window#waybar {
           background: transparent;
-          color: #4c4f69;
+          color: ${colors.withHashtag.base05};
       }
 
       .modules-left,
       .modules-center,
       .modules-right {
-          background: #ccd0da;
+          background: ${colors.withHashtag.base01};
           border-radius: 10px;
           padding: 4px 8px 4px 8px;
       }
@@ -134,41 +137,41 @@
       #workspaces button {
           padding: 0 5px;
           background: transparent;
-          color: #4c4f69;
+          color: ${colors.withHashtag.base05};
       }
 
       #workspaces button.hover {
           box-shadow: inherit;
           text-shadow: inherit;
-          border-bottom: 3px solid #179299;
+          border-bottom: 3px solid ${colors.withHashtag.base0C};
       }
 
       #workspaces button.active,
       #workspaces button.focused {
-          background: #acb0be;
-          color: #8839ef;
+          background: ${colors.withHashtag.base03};
+          color: ${colors.withHashtag.base0E};
       }
 
       #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray {
           padding: 0 10px;
           margin: 0 0px;
-          color: #4c4f69;
+          color: ${colors.withHashtag.base05};
       }
 
       #battery.charging {
-          color: #40a02b;
+          color: ${colors.withHashtag.base0B};
       }
 
       #battery.warning:not(.charging) {
-          color: #d20f39;
+          color: ${colors.withHashtag.base08};
       }
 
       #network.disconnected {
-          color: #d20f39;
+          color: ${colors.withHashtag.base08};
       }
 
       #pulseaudio.muted {
-          color: #d20f39;
+          color: ${colors.withHashtag.base08};
       }
     '';
   };
