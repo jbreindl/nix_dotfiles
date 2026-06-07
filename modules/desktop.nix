@@ -2,14 +2,14 @@
 {
 
   programs.wezterm = {
-    enable = true;
+    enable = false;
   };
 
   home.file = {
-    ".config/wezterm/wezterm.lua".source = ./wezterm/wezterm.lua;
-    ".config/wezterm/appearance.lua".source = ./wezterm/appearance.lua;
-    ".config/wezterm/multiplexing.lua".source = ./wezterm/multiplexing.lua;
-    ".config/wezterm/tabline.lua".source = ./wezterm/tabline.lua;
+    # ".config/wezterm/wezterm.lua".source = ./wezterm/wezterm.lua;
+    # ".config/wezterm/appearance.lua".source = ./wezterm/appearance.lua;
+    # ".config/wezterm/multiplexing.lua".source = ./wezterm/multiplexing.lua;
+    # ".config/wezterm/tabline.lua".source = ./wezterm/tabline.lua;
   };
 
   home.sessionVariables = {
@@ -40,7 +40,7 @@
     pulseaudio
     pavucontrol
   ];
-  gtk.iconTheme = "papirus";
+  # gtk.iconTheme = "papirus";
 
   imports = [
     ./ghostty.nix
