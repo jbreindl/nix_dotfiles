@@ -2,6 +2,7 @@
 
 let
   inherit (config.lib.stylix) colors;
+  inherit (config.stylix) fonts;
 in
 {
   programs.waybar = {
@@ -16,12 +17,21 @@ in
         margin-right = 8;
 
         modules-left = [ "clock" ];
+        modules-right = [
+          "pulseaudio"
+          "cpu"
+          "memory"
+          "battery"
+          "idle_inhibitor"
+          "custom/notification"
+          "tray"
+        ];
 
         "idle_inhibitor" = {
           format = "{icon}";
           format-icons = {
-            activated = "";
-            deactivated = "";
+            activated = " ";
+            deactivated = " ";
           };
         };
 
@@ -56,10 +66,10 @@ in
         "pulseaudio" = {
           format = "{volume}% {icon} {format_source}";
           format-bluetooth = "{volume}% {icon} {format_source}";
-          format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = " {format_source}";
+          format-bluetooth-muted = " {icon} {format_source}";
+          format-muted = "{format_source}";
           format-source = "{volume}% ";
-          format-source-muted = "";
+          format-source-muted = " ";
           format-icons = {
             headphone = "";
             hands-free = "";
@@ -92,14 +102,14 @@ in
           tooltip = true;
           format = "<span size='16pt'>{icon}</span>";
           format-icons = {
-            notification = "󱅫";
-            none = "󰂜";
-            dnd-notification = "󰂠";
-            dnd-none = "󰪓";
-            inhibited-notification = "󰂛";
-            inhibited-none = "󰪑";
-            dnd-inhibited-notification = "󰂛";
-            dnd-inhibited-none = "󰪑";
+            notification = "󱅫 ";
+            none = "󰂜 ";
+            dnd-notification = "󰂠 ";
+            dnd-none = "󰪓 ";
+            inhibited-notification = "󰂛 ";
+            inhibited-none = "󰪑 ";
+            dnd-inhibited-notification = "󰂛 ";
+            dnd-inhibited-none = "󰪑 ";
           };
           return-type = "json";
           exec-if = "which swaync-client";
@@ -116,7 +126,6 @@ in
       * {
           border: none;
           border-radius: 10px;
-          font-family: "Fira Code Mono", "Symbols Nerd Font Mono";
           font-size: 16px;
           min-height: 0;
       }
