@@ -32,7 +32,6 @@
       '';
     })
     firefox
-    fira-code
     nerd-fonts.fira-code
     networkmanager
     networkmanagerapplet
