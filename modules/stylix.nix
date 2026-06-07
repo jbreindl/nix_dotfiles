@@ -7,9 +7,6 @@ in
 {
   stylix = {
     enable = true;
-    # Opt in to targets one at a time rather than letting Stylix theme every
-    # app at once — the other modules (ghostty, helix, zellij, …) still set
-    # their own themes for now, so auto-enabling would collide with them.
     autoEnable = false;
 
     polarity = "light";
@@ -28,6 +25,9 @@ in
     # programs
     targets = {
       waybar = {
+        enable = true;
+      };
+      ghostty = {
         enable = true;
       };
 
