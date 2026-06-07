@@ -35,6 +35,7 @@
     rustc
     rustfmt
     zellij
+    bat
   ];
 
   # local module definitions
