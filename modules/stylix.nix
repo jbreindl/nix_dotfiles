@@ -36,6 +36,7 @@ in
       rofi.enable = true;
       fzf.enable = true;
       lazygit.enable = true;
+      zellij.enable = true;
 
     };
   };
