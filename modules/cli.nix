@@ -36,6 +36,7 @@
     rustfmt
     zellij
     bat
+    yazi
   ];
 
   # local module definitions

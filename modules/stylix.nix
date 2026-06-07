@@ -31,6 +31,12 @@ in
         enable = true;
       };
 
+      bat.enable = true;
+      yazi.enable = true;
+      rofi.enable = true;
+      fzf.enable = true;
+      lazygit.enable = true;
+
     };
   };
 }
