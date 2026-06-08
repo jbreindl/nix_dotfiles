@@ -3,7 +3,7 @@
   programs.helix.enable = true;
   programs.helix.defaultEditor = true;
   programs.helix.settings = {
-    theme = "nord_transparent";
+    theme = "catppuccin_latte_transparent";
     editor = {
       true-color = true;
       line-number = "relative";
@@ -17,10 +17,15 @@
     solarized_light_transparent = {
       "inherits" = "solarized_light";
       "ui.background" = { };
-
     };
-    nord_transparent = {
-      "inherits" = "nord";
+    catppuccin_latte_transparent = {
+
+      "inherits" = "catppuccin_latte";
+      "ui.background" = { };
+    };
+
+    nord_light_transparent = {
+      "inherits" = "nord_light";
       "ui.background" = { };
 
     };

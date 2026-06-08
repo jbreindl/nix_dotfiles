@@ -2,31 +2,16 @@
 
 {
   programs.waybar.settings.mainBar = {
-    modules-left = [
+    modules-center = [
       "hyprland/workspaces"
       "hyprland/submap"
-    ];
-    modules-right = [
-      "pulseaudio"
-      "cpu"
-      "memory"
-      "battery"
-      "idle_inhibitor"
-      "hyprland/language"
-      "custom/notification"
-      "tray"
     ];
 
     "hyprland/workspaces" = {
       disable-scroll = true;
       all-outputs = false;
       warp-on-scroll = false;
-      format = "{id}: {icon}";
-      format-icons = {
-        urgent = "";
-        active = "";
-        default = "";
-      };
+      format = "{id}";
     };
 
     "hyprland/language" = {

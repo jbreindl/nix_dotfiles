@@ -1,4 +1,5 @@
-{...}:{
+{ ... }:
+{
   home.username = "jbr";
   home.homeDirectory = "/home/jbr";
   imports = [
@@ -7,6 +8,7 @@
     # ../modules/sway/sway-work.nix
     ../modules/hyprland/base.nix
   ];
+
   targets = {
     # Make home-manager work better on non-NixOS
     genericLinux.enable = true;

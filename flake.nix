@@ -16,6 +16,10 @@
       url = "github:lunik1/nix-wallpaper";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -24,6 +28,7 @@
       home-manager,
       nixgl,
       nix-wallpaper,
+      stylix,
       ...
     }:
     let
@@ -46,12 +51,18 @@
       homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = sharedArgs;
-        modules = [ ./hosts/home.nix ];
+        modules = [
+          stylix.homeModules.stylix
+          ./hosts/home.nix
+        ];
       };
       homeConfigurations."work" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = sharedArgs;
-        modules = [ ./hosts/work.nix ];
+        modules = [
+          stylix.homeModules.stylix
+          ./hosts/work.nix
+        ];
       };
       homeConfigurations."work-server" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
