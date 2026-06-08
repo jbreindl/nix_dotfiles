@@ -90,11 +90,11 @@ in
           format = "{capacity}% {icon}";
           format-charging = "{capacity}% ";
           format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
+            ""
+            ""
+            ""
+            ""
+            ""
           ];
         };
 
