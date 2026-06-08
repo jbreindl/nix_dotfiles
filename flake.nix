@@ -38,6 +38,10 @@
       };
     in
     {
+      nix = {
+        package = pkgs.nix;
+        settings.experimental-features = ["nix-command" "flakes"];
+      };
       home-manager.backupFileExtension = "backup";
       homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -48,6 +52,11 @@
         inherit pkgs;
         extraSpecialArgs = sharedArgs;
         modules = [ ./hosts/work.nix ];
+      };
+      homeConfigurations."work-server" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = sharedArgs;
+        modules = [ ./hosts/work-server.nix ];
       };
     };
 }
