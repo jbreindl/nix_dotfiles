@@ -3,6 +3,7 @@ let
   leader = "Ctrl g";
 in
 {
+  xdg.configFile."zellij/layouts/dev.kdl".source = ./dev.kdl;
   programs.zellij = {
     enable = true;
     settings = {
