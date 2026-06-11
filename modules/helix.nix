@@ -71,9 +71,19 @@
         "server"
       ];
     };
+    language-server.ty = {
+      command = "uvx";
+      args = [
+        "ty"
+        "server"
+      ];
+    };
     language-server.rust-analyzer = {
       command = "rust-analyzer";
-      config.check.command = "clippy";
+      config = {
+        check.command = "clippy";
+        procMacro.enable = true;
+      };
     };
 
   };

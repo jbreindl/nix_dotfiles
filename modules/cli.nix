@@ -16,9 +16,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    lazygit
     ripgrep
-    fzf
     git
     neovim
     zoxide
@@ -35,11 +33,17 @@
     rustup
   ];
 
+  programs.btop.enable = true;
+  programs.bat.enable = true;
+  programs.lazygit.enable = true;
+  programs.fzf.enable = true;
+  programs.yazi.enable = true;
+
   # local module definitions
   imports = [
     ./zsh.nix
     ./helix.nix
-    ./zellij.nix
+    ./zellij/zellij.nix
   ];
 
   home.sessionVariables = {
