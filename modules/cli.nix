@@ -28,15 +28,11 @@
     direnv
     nixd
     nil
-    cargo
     nixfmt
-    rust-analyzer
-    clippy
-    rustc
-    rustfmt
     zellij
     bat
     yazi
+    rustup
   ];
 
   # local module definitions
