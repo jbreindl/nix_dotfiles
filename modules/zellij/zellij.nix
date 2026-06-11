@@ -6,6 +6,7 @@
       theme = "catppuccin-latte";
       default_mode = "locked";
       show_startup_tips = false;
+      session_serialization = false;
     };
     extraConfig = builtins.readFile ./keybinds.kdl;
   };

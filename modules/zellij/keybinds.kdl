@@ -8,8 +8,7 @@ keybinds clear-defaults=true{
       bind "t" { SwitchToMode "Tab"; }
       bind "h" { SwitchToMode "Move"; }
   }
-  // shared_except "normal" {
-  locked {
+  shared_except "normal" {
       bind "Ctrl Space" { SwitchToMode "Normal"; }
   }
   resize {
