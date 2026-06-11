@@ -37,6 +37,8 @@ in
       fzf.enable = true;
       lazygit.enable = true;
       zellij.enable = true;
+      btop.enable = true;
+      # zen-browser.enable = true;
 
     };
   };

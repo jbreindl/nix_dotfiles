@@ -45,6 +45,7 @@
     pulseaudio
     pavucontrol
   ];
+  programs.rofi.enable = true;
   # gtk.iconTheme = "papirus";
 
   imports = [
