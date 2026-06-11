@@ -20,6 +20,10 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,6 +33,7 @@
       nixgl,
       nix-wallpaper,
       stylix,
+      zen-browser,
       ...
     }:
     let
@@ -40,16 +45,19 @@
       sharedArgs = {
         inherit nixgl;
         inherit nix-wallpaper;
+        home-manager.backupFileExtension = "backup";
+        home-manager.news.display = "silent";
+        # import = zen-browser.homeModules.beta;
       };
     in
     {
-      home-manager.backupFileExtension = "backup";
       homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = sharedArgs;
         modules = [
           stylix.homeModules.stylix
           ./hosts/home.nix
+          zen-browser.homeModules.beta
         ];
       };
       homeConfigurations."work" = home-manager.lib.homeManagerConfiguration {
@@ -58,6 +66,7 @@
         modules = [
           stylix.homeModules.stylix
           ./hosts/work.nix
+          zen-browser.homeModules.beta
         ];
       };
     };

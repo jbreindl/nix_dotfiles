@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
 
   programs.wezterm = {
@@ -45,6 +50,7 @@
   imports = [
     ./ghostty.nix
     ./stylix.nix
+    ./zen-browser.nix
   ];
 
 }
