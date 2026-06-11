@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
 
   programs.wezterm = {
@@ -40,11 +45,13 @@
     pulseaudio
     pavucontrol
   ];
+  programs.rofi.enable = true;
   # gtk.iconTheme = "papirus";
 
   imports = [
     ./ghostty.nix
     ./stylix.nix
+    ./zen-browser.nix
   ];
 
 }

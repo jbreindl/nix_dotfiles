@@ -19,8 +19,6 @@ in
         modules-left = [ "clock" ];
         modules-right = [
           "pulseaudio"
-          "cpu"
-          "memory"
           "battery"
           "idle_inhibitor"
           "custom/notification"
@@ -67,16 +65,11 @@ in
           format = "{volume}% {icon} {format_source}";
           format-bluetooth = "{volume}% {icon} {format_source}";
           format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = "{format_source}";
+          format-muted = "{icon} {format_source}";
           format-source = "{volume}% ";
           format-source-muted = " ";
           format-icons = {
             headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
             default = [
               ""
               ""
