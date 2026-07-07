@@ -6,7 +6,8 @@
     ../modules/cli.nix
     ../modules/desktop.nix
     # ../modules/sway/sway-work.nix
-    ../modules/hyprland/base.nix
+    ../modules/niri/base.nix
+    # ../modules/hyprland/base.nix
   ];
 
   targets = {

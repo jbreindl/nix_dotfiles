@@ -5,7 +5,8 @@
   imports = [
     ../modules/cli.nix
     ../modules/desktop.nix
-    ../modules/hyprland/base.nix
+    ../modules/niri/base.nix
+    # ../modules/hyprland/base.nix
   ];
   home.packages = with pkgs; [
     discord
