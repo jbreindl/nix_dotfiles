@@ -94,14 +94,13 @@ spawn-sh-at-startup "systemctl --user import-environment WAYLAND_DISPLAY DISPLAY
 // Wallpaper — niri has no built-in wallpaper; swaybg replaces sway's `output * bg`.
 spawn-at-startup "swaybg" "-i" "/home/jbr/Pictures/wallpapers/house.jpg" "-m" "fill"
 
-// Idle & lock (sway used swayidle + swaylock the same way).
-spawn-sh-at-startup "swayidle -w timeout 300 'swaylock -f -i ~/Pictures/wallpapers/house.jpg' timeout 600 'niri msg action power-off-monitors' resume 'niri msg action power-on-monitors' before-sleep 'swaylock -f -i ~/Pictures/wallpapers/house.jpg'"
 
 // Noctalia shell (Quickshell) — provides the bar, launcher, and notifications.
-// Use the `noctalia-shell` wrapper (from nixpkgs): plain `qs -c noctalia-shell`
-// won't find the shell — its shell.qml lives under share/noctalia-shell, and the
-// wrapper is what sets up the Qt plugin / QML import paths it needs.
-spawn-at-startup "noctalia-shell"
+// Use the `noctalia` wrapper (from the upstream flake, 5.x): plain
+// `qs -c noctalia` won't find the shell — its shell.qml lives under
+// share/noctalia, and the wrapper is what sets up the Qt plugin / QML import
+// paths it needs. (4.7.x from nixpkgs called this binary `noctalia-shell`.)
+spawn-at-startup "noctalia"
 
 // Tray applets.
 spawn-at-startup "nm-applet" "--indicator"
