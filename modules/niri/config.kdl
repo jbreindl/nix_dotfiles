@@ -83,25 +83,30 @@ layout {
 }
 
 // ---- Autostart (from ~/.config/sway/autostarts) ----
-// niri, run as a session, is *supposed* to import the environment into
-// systemd/dbus itself — but in practice WAYLAND_DISPLAY/DISPLAY were missing
-// from `systemctl --user show-environment`, which left xdg-desktop-portal-gtk
-// dying with "cannot open display:". That broke the portal, and GTK apps
-// (ghostty) then blocked ~120s on the portal timeout at startup. Import the
-// graphical env explicitly and restart the portal so it picks it up.
-spawn-sh-at-startup "systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP && dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP && systemctl --user restart xdg-desktop-portal.service"
+// niri is launched as the bare `niri --session` binary, so nothing brings up
+// the systemd user session the way niri.service would. Three steps, in order:
+//   1. Import the graphical env into systemd + dbus, so user services (and
+//      dbus-activated ones) see WAYLAND_DISPLAY/DISPLAY/etc. Without this the
+//      portal backends die with "cannot open display:".
+//   2. Start niri-session.target (defined in base.nix), which pulls up
+//      graphical-session.target. xdg-desktop-portal-gnome has
+//      Requisite=graphical-session.target — until the target is active it can't
+//      start, which kills ScreenCast/Screenshot (no screen share) and stalls
+//      the whole portal ~50s at startup (hanging GTK apps like ghostty).
+//   3. Restart the portal so it (re)creates its backend proxies now that the
+//      gnome backend can actually be activated.
+spawn-sh-at-startup "systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIRI_SOCKET && dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIRI_SOCKET && systemctl --user start niri-session.target && systemctl --user restart xdg-desktop-portal.service"
 
 // Wallpaper — niri has no built-in wallpaper; swaybg replaces sway's `output * bg`.
 spawn-at-startup "swaybg" "-i" "/home/jbr/Pictures/wallpapers/house.jpg" "-m" "fill"
 
-// Idle & lock (sway used swayidle + swaylock the same way).
-spawn-sh-at-startup "swayidle -w timeout 300 'swaylock -f -i ~/Pictures/wallpapers/house.jpg' timeout 600 'niri msg action power-off-monitors' resume 'niri msg action power-on-monitors' before-sleep 'swaylock -f -i ~/Pictures/wallpapers/house.jpg'"
 
 // Noctalia shell (Quickshell) — provides the bar, launcher, and notifications.
-// Use the `noctalia-shell` wrapper (from nixpkgs): plain `qs -c noctalia-shell`
-// won't find the shell — its shell.qml lives under share/noctalia-shell, and the
-// wrapper is what sets up the Qt plugin / QML import paths it needs.
-spawn-at-startup "noctalia-shell"
+// Use the `noctalia` wrapper (from the upstream flake, 5.x): plain
+// `qs -c noctalia` won't find the shell — its shell.qml lives under
+// share/noctalia, and the wrapper is what sets up the Qt plugin / QML import
+// paths it needs. (4.7.x from nixpkgs called this binary `noctalia-shell`.)
+spawn-at-startup "noctalia"
 
 // Tray applets.
 spawn-at-startup "nm-applet" "--indicator"

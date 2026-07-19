@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  noctalia-pkg,
   ...
 }:
 
@@ -63,11 +64,12 @@ let
   };
 in
 {
-  # The noctalia-shell wrapper bundles quickshell (`qs`) with the right Qt
-  # plugin / QML import paths plus its runtime tools (brightnessctl, cliphist,
-  # ddcutil, wl-clipboard, wlr-randr, imagemagick, ...). The niri config spawns
-  # it at startup.
-  home.packages = [ pkgs.noctalia-shell ];
+  # The noctalia package bundles quickshell (`qs`) with the right Qt plugin /
+  # QML import paths plus its runtime tools (brightnessctl, cliphist, ddcutil,
+  # wl-clipboard, wlr-randr, imagemagick, ...). The niri config spawns it at
+  # startup. We pull it from the upstream flake (`noctalia-pkg`, currently 5.x)
+  # rather than nixpkgs (stuck on 4.7.x); 5.x renamed the binary to `noctalia`.
+  home.packages = [ noctalia-pkg ];
 
   # Generate a Noctalia colour scheme from the Stylix palette. Read-only symlink
   # is fine — Noctalia only ever reads scheme files.
