@@ -12,6 +12,10 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-wallpaper = {
       url = "github:lunik1/nix-wallpaper";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,6 +36,7 @@
       home-manager,
       nixgl,
       nix-wallpaper,
+      noctalia,
       stylix,
       zen-browser,
       ...
@@ -45,6 +50,7 @@
       sharedArgs = {
         inherit nixgl;
         inherit nix-wallpaper;
+        noctalia-pkg = noctalia.packages.${system}.default;
         home-manager.backupFileExtension = "backup";
         home-manager.news.display = "silent";
         # import = zen-browser.homeModules.beta;

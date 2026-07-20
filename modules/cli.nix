@@ -44,7 +44,7 @@
   imports = [
     ./zsh.nix
     ./helix.nix
-    ./zellij.nix
+    ./zellij/zellij.nix
   ];
 
   home.sessionVariables = {
