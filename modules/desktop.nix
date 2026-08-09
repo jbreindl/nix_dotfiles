@@ -24,8 +24,6 @@
     ghostty
     pulseaudio
     pavucontrol
-    steam
-    discord
   ];
   programs.rofi.enable = true;
 
