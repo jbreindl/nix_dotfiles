@@ -22,13 +22,9 @@ input {
 
     mouse {}
 
-    // sway had Mod+drag to move floating windows (floating_modifier $mod).
-    // In niri this is built in: hold Mod and drag with the left mouse button.
+    focus-follows-mouse max-scroll-amount="0%"
 }
 
-// Outputs. Names come from `niri msg outputs` — they should match the sway
-// monitor identifiers below. sway stacked both at 0,0 and auto-arranged;
-// niri needs explicit non-overlapping positions, so they sit side by side.
 output "AOC Q32G2WG3 PSAN9JA000432" {
     mode "2560x1440@144"
     scale 1
@@ -41,12 +37,6 @@ output "GIGA-BYTE TECHNOLOGY CO., LTD. G27Q 22102B001504" {
     position x=2560 y=0
 }
 
-// NOTE: sway's clamshell mode (bindswitch lid:on/off disabling eDP-1) has no
-// direct equivalent in niri's config. If you use the laptop, handle lid events
-// via a logind rule or a small script calling `niri msg output eDP-1 off/on`.
-
-// Named workspaces, ordered so their indices line up with the sway assigns:
-//   1 main · 2 comms · 3 web · 4 chat  (see window-rules below)
 workspace "main"
 workspace "comms"
 workspace "web"
@@ -82,19 +72,6 @@ layout {
     }
 }
 
-// ---- Autostart (from ~/.config/sway/autostarts) ----
-// niri is launched as the bare `niri --session` binary, so nothing brings up
-// the systemd user session the way niri.service would. Three steps, in order:
-//   1. Import the graphical env into systemd + dbus, so user services (and
-//      dbus-activated ones) see WAYLAND_DISPLAY/DISPLAY/etc. Without this the
-//      portal backends die with "cannot open display:".
-//   2. Start niri-session.target (defined in base.nix), which pulls up
-//      graphical-session.target. xdg-desktop-portal-gnome has
-//      Requisite=graphical-session.target — until the target is active it can't
-//      start, which kills ScreenCast/Screenshot (no screen share) and stalls
-//      the whole portal ~50s at startup (hanging GTK apps like ghostty).
-//   3. Restart the portal so it (re)creates its backend proxies now that the
-//      gnome backend can actually be activated.
 spawn-sh-at-startup "systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIRI_SOCKET && dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIRI_SOCKET && systemctl --user start niri-session.target && systemctl --user restart xdg-desktop-portal.service"
 
 // Wallpaper — niri has no built-in wallpaper; swaybg replaces sway's `output * bg`.
@@ -117,7 +94,7 @@ spawn-at-startup "gnome-keyring-daemon" "--start" "--components=secrets"
 
 // Apps that sway launched and pinned to workspaces (assignments below).
 spawn-at-startup "teams-for-linux"
-spawn-at-startup "outlook-for-linux"
+spawn-at-startup "thunderbird"
 spawn-at-startup "whatsapp-linux-desktop"
 spawn-sh-at-startup "signal-desktop --password-store=gnome-libsecret"
 
@@ -152,11 +129,6 @@ window-rule {
     open-on-workspace "chat"
 }
 
-// WezTerm needs an empty default width on first configure (niri default rule).
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
 
 // Firefox picture-in-picture floats (niri default rule).
 window-rule {
@@ -185,7 +157,6 @@ binds {
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
 
-    // Overview (niri extra — no sway equivalent).
     Mod+O repeat=false { toggle-overview; }
 
     // Focus movement (sway: Mod+hjkl / arrows).
@@ -227,10 +198,10 @@ binds {
 
     // Workspaces (sway: Mod+1..0 / Mod+Shift+1..0).
     // niri workspaces are dynamic; the first four are named above.
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
+    Mod+1 { focus-workspace "main"; }
+    Mod+2 { focus-workspace "comms"; }
+    Mod+3 { focus-workspace "web"; }
+    Mod+4 { focus-workspace "chat"; }
     Mod+5 { focus-workspace 5; }
     Mod+6 { focus-workspace 6; }
     Mod+7 { focus-workspace 7; }
@@ -238,10 +209,10 @@ binds {
     Mod+9 { focus-workspace 9; }
     Mod+0 { focus-workspace 10; }
 
-    Mod+Shift+1 { move-column-to-workspace 1; }
-    Mod+Shift+2 { move-column-to-workspace 2; }
-    Mod+Shift+3 { move-column-to-workspace 3; }
-    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+1 { move-column-to-workspace "main"; }
+    Mod+Shift+2 { move-column-to-workspace "comms"; }
+    Mod+Shift+3 { move-column-to-workspace "web"; }
+    Mod+Shift+4 { move-column-to-workspace "chat"; }
     Mod+Shift+5 { move-column-to-workspace 5; }
     Mod+Shift+6 { move-column-to-workspace 6; }
     Mod+Shift+7 { move-column-to-workspace 7; }
