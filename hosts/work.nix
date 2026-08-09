@@ -16,7 +16,6 @@
 
   home.packages = with pkgs; [
     thunderbird
-    teams-for-linux
   ];
 
   programs.git = {
