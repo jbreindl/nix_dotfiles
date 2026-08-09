@@ -31,11 +31,11 @@ output "AOC Q32G2WG3 PSAN9JA000432" {
     position x=0 y=0
 }
 
-output "GIGA-BYTE TECHNOLOGY CO., LTD. G27Q 22102B001504" {
-    mode "2560x1440@144"
+output "DP-7" {
     scale 1
-    position x=2560 y=0
-}
+    posistion x=0 y=0
+}  // at the office, the monitor is consistently marked as DP-7
+
 
 workspace "main"
 workspace "comms"
@@ -43,9 +43,7 @@ workspace "web"
 workspace "chat"
 
 layout {
-    // sway: gaps inner 5 / outer 5
     gaps 5
-
     center-focused-column "never"
 
     preset-column-widths {
@@ -56,16 +54,13 @@ layout {
 
     default-column-width { proportion 0.5; }
 
-    // sway showed a 3px border on every window, colored by focus state.
-    // niri's always-visible border matches that model better than the
-    // focus-ring, so the ring is off and the border carries the colors.
     focus-ring {
         off
     }
 
+    // stylix doesn't support niri
     border {
         width 3
-        // From ~/.config/sway/colors (Solarized):
         active-color "#268bd2"    // client.focused border
         inactive-color "#93a1a1"  // client.unfocused border
         urgent-color "#dc322f"    // client.urgent border
