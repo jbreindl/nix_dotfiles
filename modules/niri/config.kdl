@@ -30,7 +30,7 @@ output "AOC Q32G2WG3 PSAN9JA000432" {
 
 output "DP-7" {
     scale 1
-    posistion x=0 y=0
+    position x=0 y=0
 }  // at the office, the monitor is consistently marked as DP-7
 
 
