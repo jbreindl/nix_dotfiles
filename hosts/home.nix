@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   home.username = "jbr";
   home.homeDirectory = "/home/jbr/";
@@ -7,7 +7,10 @@
     ../modules/desktop.nix
     ../modules/niri/base.nix
   ];
-
+  home.packages = with pkgs; [
+    discord
+    steam
+  ];
   programs.git = {
     enable = true;
     settings.user = {
