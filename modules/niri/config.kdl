@@ -1,6 +1,3 @@
-// niri config — base profile ported from ~/.config/sway
-// KDL format: https://kdl.dev  ·  Docs: https://niri-wm.github.io/niri/
-// niri live-reloads this file on save; no reload keybind needed.
 
 input {
     keyboard {
