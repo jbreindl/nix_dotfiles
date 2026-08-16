@@ -40,7 +40,7 @@
       stylix,
       zen-browser,
       ...
-    }:
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -48,16 +48,15 @@
         config.allowUnfree = true;
       };
       sharedArgs = {
-        inherit nixgl;
-        inherit nix-wallpaper;
+        inherit inputs;
         noctalia-pkg = noctalia.packages.${system}.default;
         home-manager.backupFileExtension = "backup";
         home-manager.news.display = "silent";
-        # import = zen-browser.homeModules.beta;
       };
     in
     {
       homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
+
         inherit pkgs;
         extraSpecialArgs = sharedArgs;
         modules = [

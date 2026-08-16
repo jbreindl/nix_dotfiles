@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.username = "jbr";
   home.homeDirectory = "/home/jbr/";
@@ -6,7 +6,6 @@
     ../modules/cli.nix
     ../modules/desktop.nix
     ../modules/niri/base.nix
-    # ../modules/hyprland/base.nix
   ];
   home.packages = with pkgs; [
     discord
