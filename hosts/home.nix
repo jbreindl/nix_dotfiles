@@ -21,5 +21,6 @@
       email = "juliusb1616@gmail.com";
     };
   };
+  programs.alacritty.enable = true;
 
 }
