@@ -39,6 +39,7 @@ in
       zellij.enable = true;
       btop.enable = true;
       # zen-browser.enable = true;
+      kde.enable = true;
 
     };
   };
