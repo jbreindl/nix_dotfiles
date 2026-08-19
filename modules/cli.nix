@@ -31,6 +31,8 @@
     bat
     yazi
     rustup
+    tree
+    wl-clipboard
   ];
 
   programs.btop.enable = true;
