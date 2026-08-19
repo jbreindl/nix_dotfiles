@@ -3,7 +3,7 @@
   programs.helix.enable = true;
   programs.helix.defaultEditor = true;
   programs.helix.settings = {
-    theme = "catppuccin_latte_transparent";
+    theme = "catppuccin_latte";
     editor = {
       true-color = true;
       line-number = "relative";

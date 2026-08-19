@@ -20,7 +20,7 @@ in
       sizes.terminal = 16;
     };
 
-    opacity.terminal = 0.95;
+    opacity.terminal = 1.0;
 
     # programs
     targets = {
@@ -40,6 +40,7 @@ in
       btop.enable = true;
       # zen-browser.enable = true;
       kde.enable = true;
+      alacritty.enable = true;
 
     };
   };
