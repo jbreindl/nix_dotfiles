@@ -28,6 +28,11 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
@@ -39,6 +44,7 @@
       noctalia,
       stylix,
       zen-browser,
+      plasma-manager,
       ...
     }@inputs:
     let
@@ -49,20 +55,18 @@
       };
       sharedArgs = {
         inherit inputs;
-        noctalia-pkg = noctalia.packages.${system}.default;
-        home-manager.backupFileExtension = "backup";
-        home-manager.news.display = "silent";
       };
     in
     {
       homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
 
         inherit pkgs;
-        extraSpecialArgs = sharedArgs;
+        extraSpecialArgs = { inherit inputs; };
         modules = [
           stylix.homeModules.stylix
           ./hosts/home.nix
           zen-browser.homeModules.beta
+          plasma-manager.homeModules.plasma-manager
         ];
       };
       homeConfigurations."work" = home-manager.lib.homeManagerConfiguration {
