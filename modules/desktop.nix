@@ -18,16 +18,16 @@
   home.packages = with pkgs; [
     firefox
     nerd-fonts.fira-code
-    networkmanager
-    networkmanagerapplet
-    blueman
+    # networkmanager
+    # networkmanagerapplet
+    # blueman
     ghostty
     pulseaudio
     pavucontrol
     alacritty
 
   ];
-  programs.rofi.enable = true;
+  # programs.rofi.enable = true;
 
   imports = [
     ./ghostty.nix
