@@ -384,11 +384,6 @@
         location = "top";
         widgets = [
           {
-            kickoff = {
-              icon = "nix-snowflake-white";
-            };
-          }
-          {
             pager = {
               general = {
 
@@ -407,6 +402,11 @@
           "org.kde.plasma.panelspacer"
           "org.kde.plasma.systemtray"
           "org.kde.plasma.appmenu"
+          {
+            kickoff = {
+              icon = "nix-snowflake-white";
+            };
+          }
         ];
       }
     ];
