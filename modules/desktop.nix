@@ -24,6 +24,8 @@
     ghostty
     pulseaudio
     pavucontrol
+    alacritty
+
   ];
   programs.rofi.enable = true;
 
