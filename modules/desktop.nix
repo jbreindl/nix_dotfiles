@@ -22,10 +22,8 @@
     # networkmanagerapplet
     # blueman
     ghostty
-    pulseaudio
-    pavucontrol
     alacritty
-
+    kitty
   ];
   # programs.rofi.enable = true;
   programs.alacritty.enable = true;
@@ -34,6 +32,7 @@
     ./ghostty.nix
     ./stylix.nix
     ./zen-browser.nix
+    ./kitty.nix
   ];
 
 }

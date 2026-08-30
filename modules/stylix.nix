@@ -41,6 +41,7 @@ in
       # zen-browser.enable = true;
       kde.enable = true;
       alacritty.enable = true;
+      kitty.enable = true;
 
     };
   };
