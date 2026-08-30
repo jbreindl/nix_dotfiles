@@ -44,49 +44,6 @@ in
 
       menu = "rofi -combi-modi drun -show combi -show-icons";
 
-      fonts = {
-        names = [ "Lato" ];
-        size = 12.0;
-      };
-      colors = {
-        focused = {
-          border = blue;
-          background = blue;
-          text = base3;
-          indicator = blue;
-          childBorder = blue;
-        };
-        focusedInactive = {
-          border = base1;
-          background = base2;
-          text = base01;
-          indicator = base1;
-          childBorder = base1;
-        };
-        unfocused = {
-          border = base1;
-          background = base2;
-          text = base01;
-          indicator = base1;
-          childBorder = base1;
-        };
-        urgent = {
-          border = red;
-          background = red;
-          text = base3;
-          indicator = red;
-          childBorder = red;
-        };
-        placeholder = {
-          border = base03;
-          background = base03;
-          text = base3;
-          indicator = base03;
-          childBorder = base03;
-        };
-        background = base3;
-      };
-
       # ── Output configuration ────────────────────────────────────────────
       output = {
         "GIGA-BYTE TECHNOLOGY CO., LTD. G27Q 22102B001504" = {

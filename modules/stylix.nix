@@ -39,9 +39,9 @@ in
       zellij.enable = true;
       btop.enable = true;
       # zen-browser.enable = true;
-      kde.enable = true;
       alacritty.enable = true;
       kitty.enable = true;
+      sway.enable = true;
 
     };
   };
