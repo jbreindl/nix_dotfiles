@@ -27,7 +27,7 @@ let
 in
 {
   imports = [
-    ../waybar/base.nix
+    ../waybar/waybar.nix
     ../waybar/sway.nix
   ];
 
