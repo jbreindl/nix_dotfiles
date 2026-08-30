@@ -16,13 +16,6 @@ let
   # };
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/house.jpg";
   lockCmd = "swaylock -f -i ${wallpaper}";
-  base03 = "#002b36";
-  base1 = "#93a1a1";
-  base2 = "#eee8d5";
-  base3 = "#fdf6e3";
-  base01 = "#586e75";
-  blue = "#268bd2";
-  red = "#dc322f";
 
 in
 {
