@@ -33,6 +33,7 @@
     ./stylix.nix
     ./zen-browser.nix
     ./kitty.nix
+    ./wallpapers/wallpaper.nix
   ];
 
 }

@@ -2,8 +2,6 @@
   config,
   lib,
   pkgs,
-  nix-wallpaper,
-  nixgl,
   ...
 }:
 
@@ -14,7 +12,7 @@ let
   # wallpaper-pkg = nix-wallpaper.packages.${pkgs.system}.default.override {
   #   preset = "solarized-light";
   # };
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/house.jpg";
+  wallpaper = "${config.wallpaper.image}";
   lockCmd = "swaylock -f -i ${wallpaper}";
 
 in
@@ -236,12 +234,12 @@ in
   # NOTE: on non nixos systems, `swaylock` needs to be installed using the system package manager
   home.packages = with pkgs; [
     swayidle
-    swaynotificationcenter
     sway-contrib.grimshot
     grim
     slurp
     wl-clipboard
     rofi
   ];
+  services.swaync.enable = true;
 
 }

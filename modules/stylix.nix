@@ -1,9 +1,9 @@
-{ pkgs, nix-wallpaper, ... }:
-let
-  wallpaper-pkg = nix-wallpaper.packages.${pkgs.system}.default.override {
-    preset = "catppuccin-latte-rainbow";
-  };
-in
+{
+  pkgs,
+  nix-wallpaper,
+  config,
+  ...
+}:
 {
   stylix = {
     enable = true;
@@ -12,6 +12,7 @@ in
     polarity = "light";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
 
+    image = config.wallpaper.image;
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.fira-code;
@@ -42,6 +43,7 @@ in
       alacritty.enable = true;
       kitty.enable = true;
       sway.enable = true;
+      swaync.enable = true;
 
     };
   };
