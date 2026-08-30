@@ -53,15 +53,16 @@
         inherit system;
         config.allowUnfree = true;
       };
-      sharedArgs = {
-        inherit inputs;
-      };
     in
     {
       homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
 
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
+        inherit inputs;
+        extraSpecailArgs = {
+          isNixOS = true;
+        };
+
         modules = [
           stylix.homeModules.stylix
           ./hosts/home.nix
@@ -71,7 +72,10 @@
       };
       homeConfigurations."work" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = sharedArgs;
+        extraSpecialArgs = {
+          isNixOS = false;
+          inherit inputs;
+        };
         modules = [
           stylix.homeModules.stylix
           ./hosts/work.nix
