@@ -100,7 +100,7 @@ in
         { command = "nm-applet --indicator "; }
         { command = "blueman-applet"; }
         { command = "swaync"; }
-        # { command = "waybar"; }
+        { command = "waybar"; }
 
       ];
 
@@ -227,9 +227,8 @@ in
       bindswitch --reload --locked lid:on output $laptop disable
       bindswitch --reload --locked lid:off output $laptop enable
 
-      # If you have a ./colors file, inline it here or use:
       # Enables inhibit_idle when playing audio
-      exec sway-audio-idle-inhibit  # mysterious open source code
+      exec sway-audio-idle-inhibit  
     '';
   };
 
@@ -245,5 +244,4 @@ in
     rofi
   ];
 
-  # ── Session variables ──────────────────────────────────────────────────
 }

@@ -36,6 +36,7 @@ in
           "battery"
           "idle_inhibitor"
           "custom/notification"
+          "custom/audio_idle_inhibitor"
           "tray"
         ];
 
@@ -124,6 +125,18 @@ in
           on-click = "swaync-client -t -sw";
           on-click-right = "swaync-client -d -sw";
           escape = true;
+        };
+        "custom/audio_idle_inhibitor" = {
+          format = "{icon}";
+          exec = "sway-audio-idle-inhibit --dry-print-both-waybar";
+          exec-if = "which sway-audio-idle-inhibit";
+          return-type = "json";
+          format-icons = {
+            output = "󰕾"; # speaker/volume-high — audio output active, no input
+            input = "󰍬"; # microphone — input active, no output
+            output-input = "󰦧"; # headset/mic combo — both active
+            none = "󰝟"; # muted/no-inhibit — neither active
+          };
         };
       };
     };
