@@ -11,10 +11,10 @@ let
   modifier = "Mod4";
 
   # Wallpaper path — adjust per machine via a host-specific override
-  wallpaper-pkg = nix-wallpaper.packages.${pkgs.system}.default.override {
-    preset = "solarized-light";
-  };
-  wallpaper = "${wallpaper-pkg}/share/wallpapers/nixos-wallpaper.png";
+  # wallpaper-pkg = nix-wallpaper.packages.${pkgs.system}.default.override {
+  #   preset = "solarized-light";
+  # };
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/house.jpg";
   lockCmd = "swaylock -f -i ${wallpaper}";
   base03 = "#002b36";
   base1 = "#93a1a1";
@@ -34,6 +34,10 @@ in
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+
+    # The wallpaper lives in $HOME, which the Nix build sandbox can't see, so
+    # `sway -C` fails on the `bg` lines. Disable the build-time config check.
+    checkConfig = false;
 
     config = {
       modifier = modifier;
@@ -92,6 +96,13 @@ in
           position = "0 0";
           bg = "${wallpaper} fill";
         };
+        "AOC Q32G2WG3 PSAN9JA000432" = {
+          mode = "2560x1440@144Hz";
+          scale = "1";
+          scale_filter = "smart";
+          position = "0 0";
+          bg = "${wallpaper} fill";
+        };
         # Fallback wallpaper for all other outputs
         "*" = {
           bg = "${wallpaper} fill";
@@ -139,6 +150,7 @@ in
         { command = "nm-applet --indicator "; }
         { command = "blueman-applet"; }
         { command = "swaync"; }
+        # { command = "waybar"; }
 
       ];
 
@@ -148,9 +160,10 @@ in
       # ── Key bindings ─────────────────────────────────────────────────────
       keybindings = lib.mkOptionDefault {
         # Basics
-        "${modifier}+Return" = "exec ghostty";
-        "${modifier}+Shift+q" = "kill";
+        "${modifier}+Return" = "exec alacritty";
+        "${modifier}+q" = "kill";
         "${modifier}+d" = "exec rofi -combi-modi drun -show combi -show-icons";
+        # "${modifier}+Space" = "exec rofi -combi-modi drun -show combi -show-icons";
         "${modifier}+Shift+r" = "reload";
         "${modifier}+Shift+e" = ''
           exec swaynag -t warning \
@@ -265,6 +278,8 @@ in
       bindswitch --reload --locked lid:off output $laptop enable
 
       # If you have a ./colors file, inline it here or use:
+      # Enables inhibit_idle when playing audio
+      exec sway-audio-idle-inhibit  # mysterious open source code
     '';
   };
 
