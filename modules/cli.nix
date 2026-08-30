@@ -33,6 +33,9 @@
     rustup
     tree
     wl-clipboard
+    just
+    glow
+    claude-code
   ];
 
   programs.btop.enable = true;
@@ -40,6 +43,7 @@
   programs.lazygit.enable = true;
   programs.fzf.enable = true;
   programs.yazi.enable = true;
+  programs.claude-code.enable = true;
 
   # local module definitions
   imports = [
