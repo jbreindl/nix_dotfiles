@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  pkgs,
+  isNixOS,
+  ...
+}:
 
 let
   inherit (config.lib.stylix) colors;
@@ -8,6 +13,15 @@ in
   programs.waybar = {
     enable = true;
     systemd.enable = false;
+    package =
+      if isNixOS then
+        pkgs.waybar
+      else
+        pkgs.runCommand "waybar-system" { } ''
+          mkdir -p $out/bin
+          ln -s /usr/bin/waybar $out/bin/waybar
+        '';
+
     settings = {
       mainBar = {
         layer = "top";
