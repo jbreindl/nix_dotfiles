@@ -5,7 +5,11 @@
   imports = [
     ../modules/cli.nix
     ../modules/desktop.nix
-    ../modules/niri/base.nix
+    ../modules/sway/base.nix
+    ../modules/sway/sway-work.nix
+    ../modules/waybar/base.nix
+    ../modules/waybar/sway.nix
+
   ];
 
   targets = {
@@ -13,10 +17,6 @@
     genericLinux.enable = true;
     genericLinux.gpu.enable = true;
   };
-
-  home.packages = with pkgs; [
-    thunderbird
-  ];
 
   programs.git = {
     enable = true;
