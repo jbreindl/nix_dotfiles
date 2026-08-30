@@ -5,9 +5,9 @@
   imports = [
     ../modules/cli.nix
     ../modules/desktop.nix
-    ../modules/sway/base.nix
+    ../modules/sway/sway.nix
     ../modules/sway/sway-work.nix
-    ../modules/waybar/base.nix
+    ../modules/waybar/waybar.nix
     ../modules/waybar/sway.nix
 
   ];
