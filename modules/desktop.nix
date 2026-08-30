@@ -28,6 +28,7 @@
 
   ];
   # programs.rofi.enable = true;
+  programs.alacritty.enable = true;
 
   imports = [
     ./ghostty.nix
