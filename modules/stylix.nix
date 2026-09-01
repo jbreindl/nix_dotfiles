@@ -1,9 +1,9 @@
-{ pkgs, nix-wallpaper, ... }:
-let
-  wallpaper-pkg = nix-wallpaper.packages.${pkgs.system}.default.override {
-    preset = "catppuccin-latte-rainbow";
-  };
-in
+{
+  pkgs,
+  nix-wallpaper,
+  config,
+  ...
+}:
 {
   stylix = {
     enable = true;
@@ -12,15 +12,16 @@ in
     polarity = "light";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
 
+    image = config.wallpaper.image;
     fonts = {
       monospace = {
-        package = pkgs.nerd-font.fira-code;
+        package = pkgs.nerd-fonts.fira-code;
         name = "FiraCode Nerd Font";
       };
       sizes.terminal = 16;
     };
 
-    opacity.terminal = 0.95;
+    opacity.terminal = 1.0;
 
     # programs
     targets = {
@@ -39,6 +40,10 @@ in
       zellij.enable = true;
       btop.enable = true;
       # zen-browser.enable = true;
+      alacritty.enable = true;
+      kitty.enable = true;
+      sway.enable = true;
+      swaync.enable = true;
 
     };
   };

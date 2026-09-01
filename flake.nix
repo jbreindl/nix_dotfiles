@@ -28,6 +28,11 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
@@ -39,21 +44,14 @@
       noctalia,
       stylix,
       zen-browser,
+      plasma-manager,
       ...
-    }:
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-      };
-      sharedArgs = {
-        inherit nixgl;
-        inherit nix-wallpaper;
-        noctalia-pkg = noctalia.packages.${system}.default;
-        home-manager.backupFileExtension = "backup";
-        home-manager.news.display = "silent";
-        # import = zen-browser.homeModules.beta;
       };
     in
     {
@@ -63,17 +61,26 @@
       };
       home-manager.backupFileExtension = "backup";
       homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
+
         inherit pkgs;
-        extraSpecialArgs = sharedArgs;
+        inherit inputs;
+        extraSpecailArgs = {
+          isNixOS = true;
+        };
+
         modules = [
           stylix.homeModules.stylix
           ./hosts/home.nix
           zen-browser.homeModules.beta
+          plasma-manager.homeModules.plasma-manager
         ];
       };
       homeConfigurations."work" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = sharedArgs;
+        extraSpecialArgs = {
+          isNixOS = false;
+          inherit inputs;
+        };
         modules = [
           stylix.homeModules.stylix
           ./hosts/work.nix

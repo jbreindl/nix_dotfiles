@@ -3,7 +3,7 @@
   programs.helix.enable = true;
   programs.helix.defaultEditor = true;
   programs.helix.settings = {
-    theme = "catppuccin_latte_transparent";
+    theme = "catppuccin_latte";
     editor = {
       true-color = true;
       line-number = "relative";
@@ -71,9 +71,19 @@
         "server"
       ];
     };
+    language-server.ty = {
+      command = "uvx";
+      args = [
+        "ty"
+        "server"
+      ];
+    };
     language-server.rust-analyzer = {
       command = "rust-analyzer";
-      config.check.command = "clippy";
+      config = {
+        check.command = "clippy";
+        procMacro.enable = true;
+      };
     };
 
   };

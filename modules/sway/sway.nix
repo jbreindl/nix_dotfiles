@@ -2,8 +2,6 @@
   config,
   lib,
   pkgs,
-  nix-wallpaper,
-  nixgl,
   ...
 }:
 
@@ -11,23 +9,16 @@ let
   modifier = "Mod4";
 
   # Wallpaper path — adjust per machine via a host-specific override
-  wallpaper-pkg = nix-wallpaper.packages.${pkgs.system}.default.override {
-    preset = "solarized-light";
-  };
-  wallpaper = "${wallpaper-pkg}/share/wallpapers/nixos-wallpaper.png";
+  # wallpaper-pkg = nix-wallpaper.packages.${pkgs.system}.default.override {
+  #   preset = "solarized-light";
+  # };
+  wallpaper = "${config.wallpaper.image}";
   lockCmd = "swaylock -f -i ${wallpaper}";
-  base03 = "#002b36";
-  base1 = "#93a1a1";
-  base2 = "#eee8d5";
-  base3 = "#fdf6e3";
-  base01 = "#586e75";
-  blue = "#268bd2";
-  red = "#dc322f";
 
 in
 {
   imports = [
-    ../waybar/base.nix
+    ../waybar/waybar.nix
     ../waybar/sway.nix
   ];
 
@@ -35,57 +26,25 @@ in
     enable = true;
     wrapperFeatures.gtk = true;
 
+    # The wallpaper lives in $HOME, which the Nix build sandbox can't see, so
+    # `sway -C` fails on the `bg` lines. Disable the build-time config check.
+    checkConfig = false;
+
     config = {
       modifier = modifier;
 
       menu = "rofi -combi-modi drun -show combi -show-icons";
 
-      fonts = {
-        names = [ "Lato" ];
-        size = 12.0;
-      };
-      colors = {
-        focused = {
-          border = blue;
-          background = blue;
-          text = base3;
-          indicator = blue;
-          childBorder = blue;
-        };
-        focusedInactive = {
-          border = base1;
-          background = base2;
-          text = base01;
-          indicator = base1;
-          childBorder = base1;
-        };
-        unfocused = {
-          border = base1;
-          background = base2;
-          text = base01;
-          indicator = base1;
-          childBorder = base1;
-        };
-        urgent = {
-          border = red;
-          background = red;
-          text = base3;
-          indicator = red;
-          childBorder = red;
-        };
-        placeholder = {
-          border = base03;
-          background = base03;
-          text = base3;
-          indicator = base03;
-          childBorder = base03;
-        };
-        background = base3;
-      };
-
       # ── Output configuration ────────────────────────────────────────────
       output = {
         "GIGA-BYTE TECHNOLOGY CO., LTD. G27Q 22102B001504" = {
+          mode = "2560x1440@144Hz";
+          scale = "1";
+          scale_filter = "smart";
+          position = "0 0";
+          bg = "${wallpaper} fill";
+        };
+        "AOC Q32G2WG3 PSAN9JA000432" = {
           mode = "2560x1440@144Hz";
           scale = "1";
           scale_filter = "smart";
@@ -139,6 +98,7 @@ in
         { command = "nm-applet --indicator "; }
         { command = "blueman-applet"; }
         { command = "swaync"; }
+        { command = "waybar"; }
 
       ];
 
@@ -148,9 +108,10 @@ in
       # ── Key bindings ─────────────────────────────────────────────────────
       keybindings = lib.mkOptionDefault {
         # Basics
-        "${modifier}+Return" = "exec ghostty";
-        "${modifier}+Shift+q" = "kill";
+        "${modifier}+Return" = "exec alacritty";
+        "${modifier}+q" = "kill";
         "${modifier}+d" = "exec rofi -combi-modi drun -show combi -show-icons";
+        # "${modifier}+Space" = "exec rofi -combi-modi drun -show combi -show-icons";
         "${modifier}+Shift+r" = "reload";
         "${modifier}+Shift+e" = ''
           exec swaynag -t warning \
@@ -264,7 +225,8 @@ in
       bindswitch --reload --locked lid:on output $laptop disable
       bindswitch --reload --locked lid:off output $laptop enable
 
-      # If you have a ./colors file, inline it here or use:
+      # Enables inhibit_idle when playing audio
+      exec sway-audio-idle-inhibit  
     '';
   };
 
@@ -272,13 +234,12 @@ in
   # NOTE: on non nixos systems, `swaylock` needs to be installed using the system package manager
   home.packages = with pkgs; [
     swayidle
-    swaynotificationcenter
     sway-contrib.grimshot
     grim
     slurp
     wl-clipboard
     rofi
   ];
+  services.swaync.enable = true;
 
-  # ── Session variables ──────────────────────────────────────────────────
 }

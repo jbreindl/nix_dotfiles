@@ -2,20 +2,29 @@
 
 {
   imports = [
-    ./base.nix
+    ./sway.nix
   ];
   wayland.windowManager.sway = {
     config = {
       assigns = {
         "2" = [
           { app_id = "teams-for-linux"; }
-          { instance = "outlook-for-linux"; }
+          { instance = "thunderbird"; }
         ];
+      };
+      output = {
+        DP-7 = {
+          position = "0 0";
+          mode = "2560x1440";
+        };
+        DP-8 = {
+          mode = "2560x1440";
+        };
       };
 
       startup = [
         { command = "teams-for-linux"; }
-        { command = "outlook-for-linux"; }
+        { command = "thunderbird"; }
       ];
       input = {
         "1:1:AT_Translated_Set_2_keyboard" = {

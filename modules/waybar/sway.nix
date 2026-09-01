@@ -2,19 +2,12 @@
 
 {
   programs.waybar.settings.mainBar = {
-    modules-left = [
+    modules-center = [
       "sway/workspaces"
       "sway/mode"
     ];
     modules-right = [
-      "pulseaudio"
-      "cpu"
-      "memory"
-      "battery"
-      "idle_inhibitor"
       "sway/language"
-      "custom/notification"
-      "tray"
     ];
 
     "sway/workspaces" = {
@@ -22,11 +15,6 @@
       all-outputs = false;
       warp-on-scroll = false;
       format = "{value}";
-      # format-icons = {
-      #   urgent = "";
-      #   focused = "";
-      #   default = "";
-      # };
     };
 
     "sway/language" = {
