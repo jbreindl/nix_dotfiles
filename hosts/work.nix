@@ -17,6 +17,9 @@
     genericLinux.enable = true;
     genericLinux.gpu.enable = true;
   };
+  home.packages = with pkgs; [
+    glab
+  ];
 
   programs.git = {
     enable = true;
