@@ -11,6 +11,7 @@
         "tmux"
         "history-substring-search"
         "per-directory-history"
+        "direnv"
       ];
       theme = "jispwoso";
       extraConfig = ''
@@ -36,6 +37,8 @@
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
-
+  };
+  programs.direnv = {
+    enable = true;
   };
 }
