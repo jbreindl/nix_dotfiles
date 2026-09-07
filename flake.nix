@@ -80,6 +80,7 @@
           stylix.homeModules.stylix
           ./hosts/work.nix
           zen-browser.homeModules.beta
+          nixvim.homeModules.nixvim
         ];
       };
     };
