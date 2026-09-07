@@ -18,14 +18,14 @@
   home.packages = with pkgs; [
     firefox
     nerd-fonts.fira-code
-    # networkmanager
-    # networkmanagerapplet
-    # blueman
+    networkmanager
+    networkmanagerapplet
+    blueman
     ghostty
     alacritty
     kitty
   ];
-  # programs.rofi.enable = true;
+  programs.rofi.enable = true;
   programs.alacritty.enable = true;
 
   imports = [
@@ -35,5 +35,6 @@
     ./kitty.nix
     ./wallpapers/wallpaper.nix
   ];
+  wallpaper.image = ../modules/wallpapers/house.jpg;
 
 }

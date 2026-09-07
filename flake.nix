@@ -33,18 +33,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-26.05";
+    };
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
-      nixgl,
-      nix-wallpaper,
-      noctalia,
       stylix,
       zen-browser,
-      plasma-manager,
+      nixvim,
       ...
     }@inputs:
     let
@@ -58,16 +58,16 @@
       homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
 
         inherit pkgs;
-        inherit inputs;
-        extraSpecailArgs = {
+        extraSpecialArgs = {
           isNixOS = true;
+          inherit inputs;
         };
 
         modules = [
           stylix.homeModules.stylix
           ./hosts/home.nix
           zen-browser.homeModules.beta
-          plasma-manager.homeModules.plasma-manager
+          nixvim.homeModules.nixvim
         ];
       };
       homeConfigurations."work" = home-manager.lib.homeManagerConfiguration {

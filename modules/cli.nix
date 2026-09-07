@@ -18,7 +18,7 @@
   home.packages = with pkgs; [
     ripgrep
     git
-    neovim
+    #neovim
     zoxide
     zsh
     tmux

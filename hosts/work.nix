@@ -25,5 +25,4 @@
       email = "jbr@condat.de";
     };
   };
-  wallpaper.image = ../modules/wallpapers/house.jpg;
 }
