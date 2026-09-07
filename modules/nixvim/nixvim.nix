@@ -2,7 +2,10 @@
 {
   programs.nixvim = {
     enable = true;
-    colorschemes.catppuccin.enable = true;
+    colorschemes.catppuccin = {
+      enable = true;
+      settings.flavour = "latte";
+    };
     defaultEditor = true;
     imports = [
       ./telescope.nix
@@ -10,6 +13,7 @@
       ./mini.nix
       ./lsp.nix
       ./blink.nix
+      ./ai-code.nix
     ];
     opts = {
       relativenumber = true;

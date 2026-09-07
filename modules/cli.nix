@@ -36,6 +36,7 @@
     just
     glow
     claude-code
+    claude-agent-acp
   ];
 
   programs.btop.enable = true;
