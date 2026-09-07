@@ -3,6 +3,7 @@
   programs.nixvim = {
     enable = true;
     colorschemes.catppuccin.enable = true;
+    defaultEditor = true;
     imports = [
       ./telescope.nix
       ./whichkey.nix
@@ -12,7 +13,6 @@
     ];
     opts = {
       relativenumber = true;
-      autocomplete = false;
       cursorline = true;
       scrolloff = 10;
       signcolumn = "yes";
