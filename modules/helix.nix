@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.helix.enable = true;
-  programs.helix.defaultEditor = true;
+  programs.helix.defaultEditor = false;
   programs.helix.settings = {
     theme = "catppuccin_latte";
     editor = {
