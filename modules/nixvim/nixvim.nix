@@ -8,10 +8,11 @@
       ./whichkey.nix
       ./mini.nix
       ./lsp.nix
+      ./blink.nix
     ];
     opts = {
       relativenumber = true;
-      autocomplete = true;
+      autocomplete = false;
       cursorline = true;
       scrolloff = 10;
       signcolumn = "yes";
