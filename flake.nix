@@ -57,7 +57,10 @@
     {
       nix = {
         package = pkgs.nix;
-        settings.experimental-features = ["nix-command" "flakes"];
+        settings.experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
       };
       home-manager.backupFileExtension = "backup";
       homeConfigurations."home" = home-manager.lib.homeManagerConfiguration {
@@ -89,7 +92,10 @@
       };
       homeConfigurations."work-server" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = sharedArgs;
+        extraSpecialArgs = {
+          isNixOS = false;
+          inherit inputs;
+        };
         modules = [ ./hosts/work-server.nix ];
       };
     };
