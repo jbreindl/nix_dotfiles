@@ -18,7 +18,7 @@
   home.packages = with pkgs; [
     ripgrep
     git
-    neovim
+    #neovim
     zoxide
     zsh
     tmux
@@ -36,6 +36,7 @@
     just
     glow
     claude-code
+    claude-agent-acp
   ];
 
   programs.btop.enable = true;

@@ -8,7 +8,9 @@
     ../modules/sway/sway.nix
     ../modules/sway/sway-work.nix
     ../modules/waybar/waybar.nix
+
     ../modules/waybar/sway.nix
+    ../modules/nixvim/nixvim.nix
 
   ];
 
@@ -25,5 +27,4 @@
       email = "jbr@condat.de";
     };
   };
-  wallpaper.image = ../modules/wallpapers/house.jpg;
 }
