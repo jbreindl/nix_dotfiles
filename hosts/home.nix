@@ -14,14 +14,16 @@
   home.packages = with pkgs; [
     discord
     steam
-    kdePackages.krohnkite
-    klassy
+    arduino-cli
   ];
   programs.git = {
     enable = true;
-    settings.user = {
-      name = "Julius Breindl";
-      email = "juliusb1616@gmail.com";
+    settings = {
+      user = {
+        name = "Julius Breindl";
+        email = "juliusb1616@gmail.com";
+      };
+      init.defaultBranch = "main";
     };
   };
   programs.alacritty.enable = true;
