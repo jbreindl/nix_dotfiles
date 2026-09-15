@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   plugins.lsp = {
     enable = true;
@@ -20,6 +21,28 @@
         enable = true;
         installCargo = false;
         installRustc = false;
+      };
+      arduino_language_server = {
+        enable = true;
+        cmd = [
+          "arduino-language-server"
+          "-cli"
+          "arduino-cli"
+          "-cli-config"
+          "~/.arduino15/arduino-cli.yaml"
+          "-fqbn"
+          "arduino:mbed_nano:nano33ble"
+          "-clangd"
+          "clangd"
+        ];
+        extraOptions = {
+          capabilities = lib.nixvim.mkRaw ''
+            vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), {
+              textDocument = { semanticTokens = vim.NIL },
+              workspace = { semanticTokens = vim.NIL },
+            })
+          '';
+        };
       };
     };
   };
