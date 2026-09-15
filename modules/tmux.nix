@@ -12,6 +12,7 @@
 
     plugins = with pkgs.tmuxPlugins; [
       sensible
+      tmux-powerline
     ];
 
     extraConfig = ''
