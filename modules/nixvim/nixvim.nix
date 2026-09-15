@@ -8,12 +8,14 @@
     };
     defaultEditor = true;
     imports = [
+      ./keys.nix
       ./telescope.nix
       ./whichkey.nix
       ./mini.nix
       ./lsp.nix
       ./blink.nix
       ./ai-code.nix
+
     ];
     opts = {
       relativenumber = true;
