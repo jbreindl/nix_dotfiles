@@ -14,6 +14,8 @@
       ./lsp.nix
       ./blink.nix
       ./ai-code.nix
+      ./neorg.nix
+      ./treesitter.nix
     ];
     opts = {
       relativenumber = true;
@@ -24,9 +26,12 @@
       shiftwidth = 4;
       smartindent = true;
       autoindent = true;
+      autoread = true;
       smarttab = true;
       spelllang = "en_us,de";
       spell = true;
+      conceallevel = 2;
+      concealcursor = "nc";
     };
     globals = {
       mapleader = " ";
