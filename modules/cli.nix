@@ -20,7 +20,6 @@
     git
     zoxide
     zsh
-    tmux
     uv
     direnv
     nixd
@@ -52,6 +51,7 @@
   imports = [
     ./zsh.nix
     ./helix.nix
+    ./tmux.nix
     ./zellij/zellij.nix
   ];
 

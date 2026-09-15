@@ -14,6 +14,10 @@
 
   ];
 
+  home.packages = with pkgs; [
+    glab
+  ];
+
   targets = {
     # Make home-manager work better on non-NixOS
     genericLinux.enable = true;

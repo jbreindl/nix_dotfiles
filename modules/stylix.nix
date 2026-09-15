@@ -42,6 +42,7 @@
       # zen-browser.enable = true;
       alacritty.enable = true;
       kitty.enable = true;
+      tmux.enable = true;
       sway.enable = true;
       swaync.enable = true;
 

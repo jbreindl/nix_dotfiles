@@ -80,6 +80,18 @@ in
               app_id = ".*";
             };
           }
+          {
+            command = "move scratchpad";
+            criteria = {
+              app_id = "thunderbird_thunderbird";
+            };
+          }
+          {
+            command = "move scratchpad, resize set 1200 800";
+            criteria = {
+              app_id = "notes-scratch";
+            };
+          }
         ];
       };
 
@@ -99,6 +111,8 @@ in
         { command = "blueman-applet"; }
         { command = "swaync"; }
         { command = "waybar"; }
+        { command = "thunderbird"; }
+        { command = "alacritty --class notes-scratch -e nvim ~/notes.md"; }
 
       ];
 
@@ -192,6 +206,10 @@ in
         # Scratchpad
         "${modifier}+Shift+minus" = "move scratchpad";
         "${modifier}+minus" = "scratchpad show";
+
+        # Named scratchpads
+        "${modifier}+t" = ''[app_id="thunderbird_thunderbird"] scratchpad show'';
+        "${modifier}+n" = ''[app_id="notes-scratch"] scratchpad show'';
 
         # Resize mode
         "${modifier}+r" = "mode resize";
