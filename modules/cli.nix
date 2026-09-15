@@ -18,7 +18,6 @@
   home.packages = with pkgs; [
     ripgrep
     git
-    #neovim
     zoxide
     zsh
     tmux
@@ -37,6 +36,9 @@
     glow
     claude-code
     claude-agent-acp
+    arduino-language-server
+    clang-tools
+    gh
   ];
 
   programs.btop.enable = true;
