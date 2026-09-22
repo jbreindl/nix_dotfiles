@@ -15,6 +15,7 @@
     discord
     steam
     arduino-cli
+    signal-desktop
   ];
   programs.git = {
     enable = true;
