@@ -41,6 +41,9 @@
       virtual_text = true;
     };
     plugins.lualine.enable = true;
+    plugins.typst-vim.enable = true;
+    plugins.notify.enable = true;
+    plugins.no-neck-pain.enable = true;
 
     autoCmd = [
       {
@@ -51,6 +54,16 @@
           	end
           	'';
 
+      }
+      {
+        event = "FileType";
+        pattern = [
+          "text"
+          "markdown"
+          "typst"
+          "norg"
+        ];
+        command = "setlocal textwidth=100 formatoptions+=tacnq wrap linebreak";
       }
     ];
 

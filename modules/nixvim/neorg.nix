@@ -9,6 +9,9 @@
       "core.concealer" = {
         __empty = null;
       };
+      "core.export" = {
+        __empty = null;
+      };
       "core.dirman" = {
         config.workspaces.notes = "~/notes";
       };

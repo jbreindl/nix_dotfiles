@@ -38,6 +38,8 @@
     arduino-language-server
     clang-tools
     gh
+    unzip
+    typst
   ];
 
   programs.btop.enable = true;
