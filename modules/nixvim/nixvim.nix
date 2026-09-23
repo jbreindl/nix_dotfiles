@@ -17,6 +17,7 @@
       ./ai-code.nix
       ./neorg.nix
       ./treesitter.nix
+      ./no-neck-pain.nix
     ];
     opts = {
       relativenumber = true;
@@ -43,7 +44,6 @@
     plugins.lualine.enable = true;
     plugins.typst-vim.enable = true;
     plugins.notify.enable = true;
-    plugins.no-neck-pain.enable = true;
 
     autoCmd = [
       {
