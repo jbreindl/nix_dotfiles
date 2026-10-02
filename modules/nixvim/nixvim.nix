@@ -55,16 +55,16 @@
           	'';
 
       }
-      {
-        event = "FileType";
-        pattern = [
-          "text"
-          "markdown"
-          "typst"
-          "norg"
-        ];
-        command = "setlocal textwidth=100 formatoptions+=tacnq wrap linebreak";
-      }
+      # {
+      #   event = "FileType";
+      #   pattern = [
+      #     "text"
+      #     "markdown"
+      #     "typst"
+      #     "norg"
+      #   ];
+      #   command = "setlocal textwidth=100 formatoptions+=tacnq wrap linebreak";
+      # }
     ];
 
   };
