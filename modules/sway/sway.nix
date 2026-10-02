@@ -111,8 +111,6 @@ in
         { command = "blueman-applet"; }
         { command = "swaync"; }
         { command = "waybar"; }
-        { command = "thunderbird"; }
-        { command = "alacritty --class notes-scratch -e nvim ~/notes.md"; }
 
       ];
 
