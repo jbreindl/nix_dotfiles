@@ -2,7 +2,7 @@
   plugins.no-neck-pain = {
     enable = true;
     settings = {
-      autocmds.enableOnVimEnter = true;
+      autocmds.enableOnVimEnter = false;
       width = 120;
     };
   };
