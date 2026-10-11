@@ -2,6 +2,7 @@
 {
   programs.nixvim = {
     enable = true;
+    nixpkgs.config.allowUnfree = true;
     colorschemes.catppuccin = {
       enable = true;
       settings.flavour = "latte";
@@ -41,9 +42,12 @@
     diagnostic.settings = {
       virtual_text = true;
     };
-    plugins.lualine.enable = true;
-    plugins.typst-vim.enable = true;
-    plugins.notify.enable = true;
+    plugins = {
+      lualine.enable = true;
+      typst-vim.enable = true;
+      notify.enable = true;
+      lazygit.enable = true;
+    };
 
     autoCmd = [
       {
