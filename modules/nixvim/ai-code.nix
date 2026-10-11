@@ -10,4 +10,16 @@
       };
     };
   };
+  plugins.claude-code = {
+    enable = true;
+    settings = {
+      window = {
+        position = "float";
+        hide_numbers = true;
+        hide_signcolumn = true;
+      };
+      dependencies.claude-code.enable = false;
+    };
+
+  };
 }
