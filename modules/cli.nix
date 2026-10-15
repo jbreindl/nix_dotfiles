@@ -44,7 +44,6 @@
 
   programs.btop.enable = true;
   programs.bat.enable = true;
-  programs.lazygit.enable = true;
   programs.fzf.enable = true;
   programs.yazi.enable = true;
   programs.claude-code.enable = true;
@@ -55,6 +54,7 @@
     ./helix.nix
     ./tmux.nix
     ./zellij/zellij.nix
+    ./lazygit.nix
   ];
 
   home.sessionVariables = {
