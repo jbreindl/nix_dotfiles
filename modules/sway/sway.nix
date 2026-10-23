@@ -108,7 +108,7 @@ in
       # ── Key bindings ─────────────────────────────────────────────────────
       keybindings = lib.mkOptionDefault {
         # Basics
-        "${modifier}+Return" = "exec alacritty";
+        "${modifier}+Return" = "exec ghostty";
         "${modifier}+q" = "kill";
         "${modifier}+d" = "exec rofi -combi-modi drun -show combi -show-icons";
         # "${modifier}+Space" = "exec rofi -combi-modi drun -show combi -show-icons";
