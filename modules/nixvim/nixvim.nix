@@ -37,6 +37,7 @@
       linebreak = false;
       conceallevel = 2;
       concealcursor = "nc";
+      swapfile = false;
     };
     globals = {
       mapleader = " ";
