@@ -35,7 +35,6 @@
         "v"
       ];
       options.desc = "[O]pen Lazy[G]it";
-
     }
   ];
 }
