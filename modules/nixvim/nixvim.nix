@@ -46,22 +46,7 @@
     };
     # plugins with minimal config
     plugins = {
-      lualine = {
-        enable = true;
-        settings.sections.lualine_x = [
-          {
-            __raw = ''
-              function()
-                return vim.wo.wrap and "WRAP" or ""
-              end
-            '';
-            color.fg = "#f9e2af";
-          }
-          "encoding"
-          "fileformat"
-          "filetype"
-        ];
-      };
+      lualine.enable = true;
       typst-vim.enable = true;
       typst-preview.enable = true;
       notify.enable = true;
@@ -73,6 +58,7 @@
         settings.integrations.typst.enabled = false;
       };
       rainbow.enable = true;
+      wrapping.enable = true;
     };
 
     autoCmd = [
@@ -87,32 +73,5 @@
       }
     ];
 
-    userCommands.ProseWrap = {
-      desc = "Toggle prose-style wrapping (textwidth, formatoptions, wrap, linebreak)";
-      command.__raw = ''
-        function()
-          if vim.opt_local.wrap:get() then
-            vim.opt_local.textwidth = 0
-            vim.opt_local.formatoptions:remove("tacnq")
-            vim.opt_local.wrap = false
-            vim.opt_local.linebreak = false
-          else
-            vim.opt_local.textwidth = 100
-            vim.opt_local.formatoptions:append("tacnq")
-            vim.opt_local.wrap = true
-            vim.opt_local.linebreak = true
-          end
-        end
-      '';
-    };
-
-    keymaps = [
-      {
-        key = "<leader>tw";
-        action = "<cmd>ProseWrap<cr>";
-        mode = "n";
-        options.desc = "Toggle prose wrap";
-      }
-    ];
   };
 }
