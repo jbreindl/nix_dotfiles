@@ -19,6 +19,7 @@
       ./neorg.nix
       ./treesitter.nix
       ./no-neck-pain.nix
+      ./auto-session.nix
     ];
     opts = {
       relativenumber = true;
@@ -60,6 +61,7 @@
       };
       rainbow.enable = true;
       wrapping.enable = true;
+      toggleterm.enable = true;
     };
 
     autoCmd = [
