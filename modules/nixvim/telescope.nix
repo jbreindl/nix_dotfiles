@@ -21,6 +21,12 @@
           desc = "Diagnostics for buffer";
         };
       };
+      "<leader>s" = {
+        action = "lsp_document_symbols";
+        options = {
+          desc = "Document [S]ymbols";
+        };
+      };
     };
     settings = {
       prompt_position = "top";
