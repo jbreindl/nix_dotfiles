@@ -1,15 +1,6 @@
 {
-  plugins.codecompanion = {
-    enable = true;
-    settings = {
-      interactions = {
-        chat.adapter = "claude_code";
-        inline.adapter = "claude_code";
-        cmd.adapter = "claude_code";
-        background.adapter = "claude_code";
-      };
-    };
-  };
+  dependencies.claude-code.enable = false;
+
   plugins.claude-code = {
     enable = true;
     settings = {
@@ -18,7 +9,16 @@
         hide_numbers = true;
         hide_signcolumn = true;
       };
-      dependencies.claude-code.enable = false;
+      keymaps = {
+        toggle = {
+          normal = "<C-,>";
+          terminal = "<C-,>";
+          variants = {
+            continue = false;
+            verbose = false;
+          };
+        };
+      };
     };
 
   };
