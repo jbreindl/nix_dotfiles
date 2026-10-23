@@ -5,7 +5,7 @@
     nixpkgs.config.allowUnfree = true;
     colorschemes.catppuccin = {
       enable = true;
-      settings.flavour = "macchiato";
+      settings.flavour = "frappe";
     };
     defaultEditor = true;
     imports = [
@@ -63,11 +63,16 @@
         ];
       };
       typst-vim.enable = true;
+      typst-preview.enable = true;
       notify.enable = true;
       lazygit.enable = true;
       nvim-autopairs.enable = true;
       noice.enable = true;
-      image.enable = true;
+      image = {
+        enable = true;
+        settings.integrations.typst.enabled = false;
+      };
+      rainbow.enable = true;
     };
 
     autoCmd = [

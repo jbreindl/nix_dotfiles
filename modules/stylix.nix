@@ -9,8 +9,8 @@
     enable = true;
     autoEnable = false;
 
-    polarity = "light";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
 
     image = config.wallpaper.image;
     fonts = {
