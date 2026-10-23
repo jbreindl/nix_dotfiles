@@ -7,7 +7,11 @@
 
     settings = {
       confirm-close-surface = false;
-      keybind = [ "ctrl+comma=unbind" ];
+      keybind = [
+        "clear"
+        "ctrl+shift+c=copy_to_clipboard"
+        "ctrl+shift+v=paste_from_clipboard"
+      ];
     };
   };
 }
