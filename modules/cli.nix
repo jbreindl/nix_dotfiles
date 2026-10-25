@@ -30,7 +30,6 @@
     yazi
     rustup
     tree
-    wl-clipboard
     just
     glow
     claude-code
