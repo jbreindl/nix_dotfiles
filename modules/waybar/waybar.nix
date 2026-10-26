@@ -181,7 +181,7 @@ in
           color: ${colors.withHashtag.base0E};
       }
 
-      #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray {
+      #clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #language {
           padding: 0 10px;
           margin: 0 0px;
           color: ${colors.withHashtag.base05};

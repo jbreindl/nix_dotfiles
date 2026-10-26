@@ -18,7 +18,9 @@
     };
 
     "sway/language" = {
-      format = "{shortDescription}";
+      format = "{short} {variant}";
+      tooltip-format = "{long}";
+      on-click = "swaymsg input type:keyboard xkb_switch_layout next";
     };
 
     "sway/mode" = {

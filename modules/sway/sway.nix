@@ -60,7 +60,8 @@ in
       # ── Input configuration ─────────────────────────────────────────────
       input = {
         "*" = {
-          xkb_layout = "de";
+          xkb_layout = "us,de";
+          xkb_variant = "mac,";
         };
       };
 
@@ -108,7 +109,7 @@ in
       # ── Key bindings ─────────────────────────────────────────────────────
       keybindings = lib.mkOptionDefault {
         # Basics
-        "${modifier}+Return" = "exec ghostty";
+        "${modifier}+Return" = "exec env GTK_IM_MODULE=simple ghostty";
         "${modifier}+q" = "kill";
         "${modifier}+d" = "exec rofi -combi-modi drun -show combi -show-icons";
         # "${modifier}+Space" = "exec rofi -combi-modi drun -show combi -show-icons";
