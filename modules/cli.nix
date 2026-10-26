@@ -39,6 +39,8 @@
     gh
     unzip
     typst
+    grafana-loki
+    awscli2
   ];
 
   programs.btop.enable = true;
