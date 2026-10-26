@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -55,6 +55,8 @@
     ./zellij/zellij.nix
     ./lazygit.nix
     ./nix.nix
+    ./nixvim/nixvim.nix
+    inputs.nixvim.homeModules.nixvim
   ];
 
   home.sessionVariables = {

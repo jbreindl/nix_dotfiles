@@ -10,7 +10,6 @@
     ../modules/waybar/waybar.nix
 
     ../modules/waybar/sway.nix
-    ../modules/nixvim/nixvim.nix
     ../modules/ollama.nix
     ../modules/opencode.nix
 

@@ -8,7 +8,6 @@
     ../modules/sway/sway.nix
     ../modules/waybar/waybar.nix
     ../modules/waybar/sway.nix
-    ../modules/nixvim/nixvim.nix
   ];
 
   home.packages = with pkgs; [

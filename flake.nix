@@ -52,7 +52,6 @@
       nix-darwin,
       stylix,
       zen-browser,
-      nixvim,
       zapp,
       ...
     }@inputs:
@@ -76,7 +75,6 @@
           stylix.homeModules.stylix
           ./hosts/home.nix
           zen-browser.homeModules.beta
-          nixvim.homeModules.nixvim
         ];
       };
 
@@ -90,7 +88,6 @@
           stylix.homeModules.stylix
           ./hosts/work.nix
           zen-browser.homeModules.beta
-          nixvim.homeModules.nixvim
         ];
       };
 
@@ -140,7 +137,6 @@
                 users.jbr = {
                   imports = [
                     stylix.homeModules.stylix
-                    nixvim.homeModules.nixvim
                     ./hosts/mac-mini.nix
                   ];
                 };

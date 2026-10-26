@@ -3,7 +3,6 @@
 
   imports = [
     ../modules/cli.nix
-    ../modules/nixvim/nixvim.nix
     ../modules/ghostty.nix
     ../modules/stylix.nix
     ../modules/aerospace.nix
