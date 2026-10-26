@@ -54,6 +54,7 @@
     ./tmux.nix
     ./zellij/zellij.nix
     ./lazygit.nix
+    ./nix.nix
   ];
 
   home.sessionVariables = {

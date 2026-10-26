@@ -117,16 +117,10 @@
 
               programs.zapp.enable = true;
               nixpkgs.config.allowUnfree = true;
-              nix.settings = {
-                experimental-features = [
-                  "nix-command"
-                  "flakes"
-                ];
-                trusted-users = [
-                  "root"
-                  "jbr"
-                ];
-              };
+              nix.settings.trusted-users = [
+                "root"
+                "jbr"
+              ];
               system.stateVersion = 5;
               system.primaryUser = "jbr";
 
