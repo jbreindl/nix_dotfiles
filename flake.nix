@@ -15,10 +15,6 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-wallpaper = {
       url = "github:lunik1/nix-wallpaper";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,14 +27,8 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
     nixvim = {
       url = "github:nix-community/nixvim";
-      # inputs.nixpkgs.follows = "nixpkgs";
     };
     zapp = {
       url = "github:zsa/zapp";
@@ -106,7 +96,6 @@
         modules = [
           home-manager.darwinModules.home-manager
           zapp.darwinModules.default
-          ./modules/sketchybar.nix
 
           (
             { ... }:
