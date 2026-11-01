@@ -106,7 +106,7 @@
         modules = [
           home-manager.darwinModules.home-manager
           zapp.darwinModules.default
-          # ./modules/sketchybar.nix
+          ./modules/sketchybar.nix
 
           (
             { ... }:
