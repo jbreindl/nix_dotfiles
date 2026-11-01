@@ -2,8 +2,6 @@
 let
   hyper = "cmd-alt-ctrl-shift";
   meh = "cmd-alt-ctrl";
-  # sketchybar = "${pkgs.sketchybar}/bin/sketchybar";
-  barHeight = 32;
   gap = 10;
 in
 {
@@ -27,16 +25,6 @@ in
         "4"
         "5"
       ];
-
-      # Tell sketchybar which workspace is focused
-      # exec-on-workspace-change = [
-      #   "/bin/bash"
-      #   "-c"
-      #   "${sketchybar} --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
-      # ];
-
-      # Rebuild the bar when AeroSpace starts (covers login ordering races)
-      # after-startup-command = [ "exec-and-forget ${sketchybar} --reload" ];
 
       mode.main.binding = {
         "${meh}-enter" =
@@ -71,6 +59,8 @@ in
         "${hyper}-8" = "move-node-to-workspace 8";
         "${hyper}-9" = "move-node-to-workspace 9";
         "${hyper}-0" = "move-node-to-workspace 10";
+        "${meh}-comma" = "mode service";
+        "${meh}-q" = "close --quit-if-last-window";
       };
 
       mode.service.binding = {
