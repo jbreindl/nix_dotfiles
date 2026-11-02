@@ -78,6 +78,11 @@
           stylix.homeModules.stylix
           ./hosts/work.nix
           zen-browser.homeModules.beta
+          {
+            nix.package = linuxPkgs.nix;
+            nix.registry.nixpkgs.flake = nixpkgs;
+            nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
+          }
         ];
       };
 
