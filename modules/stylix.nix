@@ -45,6 +45,7 @@
       tmux.enable = true;
       sway.enable = true;
       swaync.enable = true;
+      opencode.enable = true;
 
     };
   };

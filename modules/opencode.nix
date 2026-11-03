@@ -9,9 +9,16 @@
       npm = "@ai-sdk/openai-compatible";
       name = "Ollama (local)";
       options.baseURL = "http://127.0.0.1:11434/v1";
+
       models = {
-        "qwen3.5:9b".name = "Qwen 3.5 9b";
-        "qwen3-coder:30b".name = "Qwen Coder 30b";
+        "qwen3-coder:30b" = {
+          name = "Qwen Coder 30b";
+          tool_call = true;
+          limit = {
+            context = 32768;
+            output = 8192;
+          };
+        };
       };
 
       agent = {
