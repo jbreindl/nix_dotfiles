@@ -39,7 +39,7 @@
       lazygit.enable = true;
       zellij.enable = true;
       btop.enable = true;
-      # zen-browser.enable = true;
+      zen-browser.profileNames = [ "default" ];
       alacritty.enable = true;
       kitty.enable = true;
       tmux.enable = true;
