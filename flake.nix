@@ -92,7 +92,14 @@
           isNixOS = false;
           inherit inputs;
         };
-        modules = [ ./hosts/work-server.nix ];
+        modules = [
+          ./hosts/work-server.nix
+          {
+            nix.package = linuxPkgs.nix;
+            nix.registry.nixpkgs.flake = nixpkgs;
+            nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
+          }
+        ];
       };
 
       darwinConfigurations."mac-mini" = nix-darwin.lib.darwinSystem {
