@@ -16,9 +16,14 @@
   ];
   programs.git = {
     enable = true;
-    settings.user = {
-      name = "Julius Breindl";
-      email = "juliusb1616@gmail.com";
+    settings = {
+      user = {
+        name = "Julius Breindl";
+        email = "juliusb1616@gmail.com";
+      };
+      init = {
+        defaultBranch = "main";
+      };
     };
     ignores = [
       "*~"
