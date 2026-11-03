@@ -38,13 +38,13 @@
     }
     {
       key = "<leader>ot";
-      action = "<cmd>ToggleTerm<CR>";
+      action = "<cmd>TermSelect<CR>";
       mode = "n";
-      options.desc = "[O]pen [T]erminal";
+      options.desc = "[O]pen [T]erminal list";
     }
     {
       key = "<leader>os";
-      action = "<cmd>AutoSession search<CR>";
+      action = "<cmd>lua MiniSessions.select()<CR>";
       mode = "n";
       options.desc = "[O]pen [S]ession";
     }
@@ -57,7 +57,7 @@
       pattern = "term://*toggleterm#*";
       callback.__raw = ''
         function(args)
-          vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { buffer = args.buf, desc = "Leave terminal mode" })
+          vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { buffer = args.buf, desc = "Leave terminal mode" })
         end
       '';
     }

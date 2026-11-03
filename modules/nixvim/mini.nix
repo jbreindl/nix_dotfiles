@@ -21,6 +21,7 @@
         };
       };
       surround = { };
+      sessions = { };
       starter = { };
     };
   };

@@ -28,8 +28,10 @@
         };
       };
     };
-    settings = {
-      prompt_position = "top";
+    extensions.ui-select.enable = true;
+    settings.defaults = {
+      layout_config.prompt_position = "top";
+      sorting_strategy = "ascending";
     };
 
   };

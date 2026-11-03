@@ -19,7 +19,6 @@
       ./neorg.nix
       ./treesitter.nix
       ./no-neck-pain.nix
-      ./auto-session.nix
     ];
     opts = {
       relativenumber = true;
@@ -61,7 +60,16 @@
       };
       rainbow.enable = true;
       wrapping.enable = true;
-      toggleterm.enable = true;
+      toggleterm = {
+        enable = true;
+        settings = {
+          direction = "float";
+          open_mapping = "[[<C-t>]]";
+          terminal_mappings = false;
+          autochdir = true;
+          float_opts.border = "rounded";
+        };
+      };
     };
 
     autoCmd = [

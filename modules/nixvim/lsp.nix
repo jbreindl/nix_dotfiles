@@ -62,7 +62,29 @@
       };
     };
   };
-  #  this isn't working
-  plugins.lsp.servers.nixd.settings.options.home_manager.expr =
-    ''(builtins.getFlake (toString ./.)).homeConfigurations."home".options'';
+  plugins.lsp.servers.nixd.extraOptions.before_init = lib.nixvim.mkRaw ''
+    function(_, config)
+      local root = config.root_dir
+      if not root or vim.fn.filereadable(root .. "/flake.nix") == 0 then
+        return
+      end
+      local flake = string.format('(builtins.getFlake "%s")', root)
+      -- options of the first entry in e.g. homeConfigurations, {} if absent
+      local function first(attr)
+        return string.format(
+          '(let s = %s.%s or { }; in if s == { } then { } else s.''${builtins.head (builtins.attrNames s)}.options)',
+          flake, attr)
+      end
+      config.settings = vim.tbl_deep_extend("force", config.settings or {}, {
+        nixd = {
+          nixpkgs = { expr = string.format("import (%s.inputs.nixpkgs or <nixpkgs>) { }", flake) },
+          options = {
+            nixos = { expr = first("nixosConfigurations") },
+            home_manager = { expr = first("homeConfigurations") },
+            darwin = { expr = first("darwinConfigurations") },
+          },
+        },
+      })
+    end
+  '';
 }
