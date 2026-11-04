@@ -5,16 +5,15 @@
   imports = [
     ../modules/cli.nix
     ../modules/desktop.nix
-    ../modules/sway/sway.nix
-    ../modules/sway/sway-work.nix
-    ../modules/waybar/waybar.nix
-
-    ../modules/waybar/sway.nix
-    ../modules/ollama.nix
-    ../modules/opencode.nix
+    ../modules/kde.nix
+    # ../modules/sway/sway.nix
+    # ../modules/sway/sway-work.nix
+    # ../modules/waybar/waybar.nix
+    # ../modules/waybar/sway.nix
 
   ];
 
+  services.swaync.enable = false;
   home.packages = with pkgs; [
     glab
   ];

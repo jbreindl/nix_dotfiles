@@ -243,6 +243,5 @@ in
     wl-clipboard
     rofi
   ];
-  services.swaync.enable = true;
 
 }
