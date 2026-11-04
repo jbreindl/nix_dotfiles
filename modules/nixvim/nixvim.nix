@@ -10,7 +10,6 @@
     defaultEditor = true;
     imports = [
       ./keys.nix
-      ./telescope.nix
       ./whichkey.nix
       ./mini.nix
       ./lsp.nix
@@ -19,18 +18,19 @@
       ./neorg.nix
       ./treesitter.nix
       ./no-neck-pain.nix
+      ./snacks.nix
+      ./dap.nix
     ];
     opts = {
       relativenumber = true;
       cursorline = true;
       scrolloff = 10;
       signcolumn = "yes";
+      expandtab = true;
+      tabstop = 4;
       softtabstop = 4;
       shiftwidth = 4;
-      smartindent = true;
-      autoindent = true;
       autoread = true;
-      smarttab = true;
       spelllang = "en_us,de";
       spell = true;
       wrap = false;
@@ -42,6 +42,11 @@
     globals = {
       mapleader = " ";
     };
+    files."ftplugin/nix.lua".opts = {
+      tabstop = 2;
+      softtabstop = 2;
+      shiftwidth = 2;
+    };
     diagnostic.settings = {
       virtual_text = true;
     };
@@ -50,10 +55,8 @@
       lualine.enable = true;
       typst-vim.enable = true;
       typst-preview.enable = true;
-      notify.enable = true;
-      lazygit.enable = true;
       nvim-autopairs.enable = true;
-      noice.enable = true;
+      # noice.enable = true;
       image = {
         enable = true;
         settings.integrations.typst.enabled = false;
@@ -64,8 +67,8 @@
         enable = true;
         settings = {
           direction = "float";
-          open_mapping = "[[<C-t>]]";
-          terminal_mappings = false;
+          open_mapping = "[[<C-\\>]]";
+          terminal_mappings = true;
           autochdir = true;
           float_opts.border = "rounded";
         };

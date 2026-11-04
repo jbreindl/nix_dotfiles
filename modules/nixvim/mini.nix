@@ -7,8 +7,8 @@
       ai = { };
       comment = {
         mappings = {
-          comment_line = "<leader>cc";
-          comment_visual = "<leader>cc";
+          comment_line = "<leader>c";
+          comment_visual = "<leader>c";
         };
       };
       move = {
@@ -22,7 +22,6 @@
       };
       surround = { };
       sessions = { };
-      starter = { };
     };
   };
 
