@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   plugins.snacks = {
     enable = true;
@@ -64,8 +64,6 @@
       words.enabled = true;
     };
   };
-
-  extraPackages = [ pkgs.lazygit ];
 
   keymaps =
     map
