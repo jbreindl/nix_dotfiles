@@ -7,7 +7,6 @@
     keymaps = {
       lspBuf = {
         "gd" = "definition";
-        "<leader>a" = "code_action";
       };
     };
     servers = {
@@ -16,6 +15,14 @@
       };
       ruff.enable = true;
       ty.enable = true;
+      yamlls = {
+        enable = true;
+        settings.yaml = {
+          validate = true;
+          schemaStore.enable = false;
+          schemas = { };
+        };
+      };
       rust_analyzer = {
         enable = true;
         installCargo = false;
