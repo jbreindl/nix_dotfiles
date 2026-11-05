@@ -110,19 +110,11 @@
           key = "]]";
           lua = "Snacks.words.jump(vim.v.count1)";
           desc = "Next reference";
-          mode = [
-            "n"
-            "t"
-          ];
         }
         {
           key = "[[";
           lua = "Snacks.words.jump(-vim.v.count1)";
           desc = "Prev reference";
-          mode = [
-            "n"
-            "t"
-          ];
         }
       ];
 }

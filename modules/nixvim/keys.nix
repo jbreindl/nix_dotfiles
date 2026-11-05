@@ -25,7 +25,7 @@
         "n"
         "v"
       ];
-      options.desc = "[P]aste after from clipboard";
+      options.desc = "[P]aste before from clipboard";
     }
     {
       key = "<leader>ot";
@@ -34,13 +34,13 @@
       options.desc = "[O]pen [T]erminal list";
     }
     {
-      key = "<leader>os";
+      key = "<leader>Ss";
       action = "<cmd>lua MiniSessions.select()<CR>";
       mode = "n";
-      options.desc = "[O]pen [S]ession";
+      options.desc = "[S]elect session";
     }
     {
-      key = "<leader>ow";
+      key = "<leader>Sw";
       action.__raw = ''
         function()
           local current = vim.fn.fnamemodify(vim.v.this_session, ":t")
@@ -50,50 +50,58 @@
         end
       '';
       mode = "n";
-      options.desc = "[O]pen: [W]rite session";
+      options.desc = "[W]rite session";
     }
     {
-      key = "<leader>od";
+      key = "<leader>Sd";
       action = "<cmd>lua MiniSessions.select('delete')<CR>";
       mode = "n";
-      options.desc = "[O]pen: [D]elete session";
+      options.desc = "[D]elete session";
     }
     {
       key = "<C-h>";
-      action = "<C-w>h";
-      mode = "n";
+      action = "<Cmd>wincmd h<CR>";
+      mode = [
+        "n"
+        "t"
+      ];
       options.desc = "Move to left pane";
     }
     {
       key = "<C-j>";
-      action = "<C-w>j";
-      mode = "n";
+      action = "<Cmd>wincmd j<CR>";
+      mode = [
+        "n"
+        "t"
+      ];
       options.desc = "Move to lower pane";
     }
     {
       key = "<C-k>";
-      action = "<C-w>k";
-      mode = "n";
+      action = "<Cmd>wincmd k<CR>";
+      mode = [
+        "n"
+        "t"
+      ];
       options.desc = "Move to upper pane";
     }
     {
       key = "<C-l>";
-      action = "<C-w>l";
-      mode = "n";
+      action = "<Cmd>wincmd l<CR>";
+      mode = [
+        "n"
+        "t"
+      ];
       options.desc = "Move to right pane";
     }
   ];
 
-  # Only map <Esc> in toggleterm buffers so TUIs like LazyGit keep their own <Esc>
+  # resume terminal mode when moving back into a terminal pane
   autoCmd = [
     {
-      event = "TermOpen";
-      pattern = "term://*toggleterm#*";
-      callback.__raw = ''
-        function(args)
-          vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { buffer = args.buf, desc = "Leave terminal mode" })
-        end
-      '';
+      event = "WinEnter";
+      pattern = "term://*";
+      command = "startinsert";
     }
   ];
 }

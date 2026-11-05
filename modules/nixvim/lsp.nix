@@ -6,7 +6,6 @@
     autoLoad = true;
     keymaps = {
       lspBuf = {
-        "<leader>k" = "hover";
         "gd" = "definition";
         "<leader>a" = "code_action";
       };

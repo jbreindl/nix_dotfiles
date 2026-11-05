@@ -71,26 +71,6 @@
       )
       [
         {
-          key = "<F5>";
-          lua = "require('dap').continue()";
-          desc = "Debug: continue / start";
-        }
-        {
-          key = "<F10>";
-          lua = "require('dap').step_over()";
-          desc = "Debug: step over";
-        }
-        {
-          key = "<F11>";
-          lua = "require('dap').step_into()";
-          desc = "Debug: step into";
-        }
-        {
-          key = "<F12>";
-          lua = "require('dap').step_out()";
-          desc = "Debug: step out";
-        }
-        {
           key = "<M-c>";
           lua = "require('dap').continue()";
           desc = "Debug: continue / start";

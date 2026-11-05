@@ -6,6 +6,10 @@
         __unkeyed-1 = "<leader>o";
         group = "[O]pen";
       }
+      {
+        __unkeyed-1 = "<leader>S";
+        group = "[S]ession";
+      }
     ];
   };
 }

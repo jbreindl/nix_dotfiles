@@ -4,7 +4,12 @@
     mockDevIcons = true;
     modules = {
       icons = { };
-      ai = { };
+      ai.custom_textobjects.__raw = ''
+        {
+          F = require("mini.ai").gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
+          c = require("mini.ai").gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
+        }
+      '';
       comment = {
         mappings = {
           comment_line = "<leader>c";

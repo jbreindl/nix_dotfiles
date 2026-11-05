@@ -2,6 +2,13 @@
   dependencies.claude-code.enable = false;
   plugins.claudecode.enable = true;
 
+  plugins.which-key.settings.spec = [
+    {
+      __unkeyed-1 = "<leader>C";
+      group = "[C]laude";
+    }
+  ];
+
   keymaps = [
     {
       key = "<C-,>";
@@ -13,28 +20,28 @@
       options.desc = "Toggle Claude Code";
     }
     {
-      key = "<leader>as";
+      key = "<leader>Cs";
       action = "<cmd>ClaudeCodeSend<CR>";
       mode = "v";
-      options.desc = "[A]I [S]end selection";
+      options.desc = "[S]end selection";
     }
     {
-      key = "<leader>ab";
+      key = "<leader>Cb";
       action = "<cmd>ClaudeCodeAdd %<CR>";
       mode = "n";
-      options.desc = "[A]I add [B]uffer";
+      options.desc = "Add [B]uffer";
     }
     {
-      key = "<leader>ay";
+      key = "<leader>Cy";
       action = "<cmd>ClaudeCodeDiffAccept<CR>";
       mode = "n";
-      options.desc = "[A]I accept diff ([Y]es)";
+      options.desc = "Accept diff ([Y]es)";
     }
     {
-      key = "<leader>an";
+      key = "<leader>Cn";
       action = "<cmd>ClaudeCodeDiffDeny<CR>";
       mode = "n";
-      options.desc = "[A]I deny diff ([N]o)";
+      options.desc = "Deny diff ([N]o)";
     }
   ];
 }
