@@ -28,6 +28,12 @@
       options.desc = "[P]aste before from clipboard";
     }
     {
+      key = "<leader>e";
+      action = "<cmd>lua vim.diagnostic.open_float()<CR>";
+      mode = "n";
+      options.desc = "Show diagnostic m[E]ssage";
+    }
+    {
       key = "<leader>ot";
       action = "<cmd>TermSelect<CR>";
       mode = "n";

@@ -25,6 +25,7 @@
 
         };
       };
+      bracketed = { };
       surround = { };
       sessions = { };
     };

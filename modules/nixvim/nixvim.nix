@@ -48,7 +48,12 @@
       shiftwidth = 2;
     };
     diagnostic.settings = {
-      virtual_text = true;
+      virtual_text = false;
+      virtual_lines.current_line = false;
+      float = {
+        border = "rounded";
+        source = true;
+      };
     };
     # plugins with minimal config
     plugins = {
@@ -56,13 +61,13 @@
       typst-vim.enable = true;
       typst-preview.enable = true;
       nvim-autopairs.enable = true;
-      # noice.enable = true;
       image = {
         enable = true;
         settings.integrations.typst.enabled = false;
       };
       rainbow.enable = true;
       wrapping.enable = true;
+      noice.enable = true;
       toggleterm = {
         enable = true;
         settings = {
