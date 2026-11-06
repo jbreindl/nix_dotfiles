@@ -2,7 +2,7 @@
 {
   plugins.lsp = {
     enable = true;
-    inlayHints = false;
+    inlayHints = true;
     autoLoad = true;
     keymaps = {
       lspBuf = {
