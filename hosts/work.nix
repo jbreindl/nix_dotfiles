@@ -26,9 +26,24 @@
 
   programs.git = {
     enable = true;
-    settings.user = {
-      name = "Julius Breindl";
-      email = "jbr@condat.de";
+    settings = {
+      user = {
+        name = "Julius Breindl";
+        email = "jbr@condat.de";
+      };
+      init.defaultBranch = "main";
+      pull.rebase = true;
     };
+    includes =
+      map
+        (dir: {
+          condition = "gitdir:${dir}";
+          contents.user.email = "juliusb1616@gmail.com";
+        })
+        [
+          "~/dev/personal/**"
+          "~/.config/**"
+        ];
   };
+  xdg.configFile."git/ignore".source = ./work-gitignore;
 }
