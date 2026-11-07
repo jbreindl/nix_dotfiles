@@ -10,4 +10,5 @@
       pull.rebase = true;
     };
   };
+  xdg.configFile."git/ignore".source = ./gitignore;
 }

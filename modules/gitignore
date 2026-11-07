@@ -164,6 +164,7 @@ lightning_logs
 *.pth
 # any uv files
 uv.*
+!uv.lock
 .python-version
 
 **/.claude/settings.local.json
@@ -171,3 +172,6 @@ uv.*
 config/config.yml
 config/state.yml
 
+.DS_Store
+*.swp
+*~

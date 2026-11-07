@@ -133,7 +133,6 @@
                       "~/.config/**"
                     ];
               };
-              xdg.configFile."git/ignore".source = ./work-gitignore;
             }
           )
           {
@@ -156,7 +155,9 @@
             home.homeDirectory = "/home/jbr";
             imports = [
               ./modules/cli.nix
+              ./modules/git.nix
             ];
+            programs.git.settings.user.email = "jbr@condat.de";
           }
           {
             nix.package = linuxPkgs.nix;
@@ -216,18 +217,7 @@
                       signal-desktop
                       ghostty-bin
                     ];
-                    programs.git = {
-                      settings = {
-                        user = {
-                          email = "juliusb1616@gmail.com";
-                        };
-                      };
-                      ignores = [
-                        "*~"
-                        "*.swp"
-                        ".DS_Store"
-                      ];
-                    };
+                    programs.git.settings.user.email = "juliusb1616@gmail.com";
                   };
               };
             }
