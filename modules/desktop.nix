@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -25,16 +23,12 @@
     alacritty
     kitty
   ];
-  programs.rofi.enable = true;
-  programs.alacritty.enable = true;
 
   imports = [
     ./ghostty.nix
     ./stylix.nix
     ./zen-browser.nix
-    ./kitty.nix
-    ./wallpapers/wallpaper.nix
+    ./kde.nix
   ];
-  wallpaper.image = ../modules/wallpapers/house.jpg;
 
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 let
   hyper = "cmd-alt-ctrl-shift";
   meh = "cmd-alt-ctrl";
@@ -17,7 +17,7 @@ in
       gaps.outer.right = gap;
       gaps.outer.top = gap;
 
-      # Always show pills 1-10 in the bar, even when empty
+      # Always show pills 1-5 in the bar, even when empty
       persistent-workspaces = [
         "1"
         "2"

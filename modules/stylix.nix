@@ -1,6 +1,5 @@
 {
   pkgs,
-  nix-wallpaper,
   config,
   ...
 }:
@@ -12,7 +11,6 @@
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
 
-    image = config.wallpaper.image;
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.fira-code;

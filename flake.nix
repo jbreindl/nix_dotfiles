@@ -11,10 +11,6 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixgl = {
-      url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -74,9 +70,6 @@
               imports = [
                 ./modules/cli.nix
                 ./modules/desktop.nix
-                ./modules/sway/sway.nix
-                ./modules/waybar/waybar.nix
-                ./modules/waybar/sway.nix
               ];
 
               home.packages = with pkgs; [
@@ -120,10 +113,6 @@
                 ./modules/cli.nix
                 ./modules/desktop.nix
                 ./modules/kde.nix
-                # ./modules/sway/sway.nix
-                # ./modules/sway/sway-work.nix
-                # ./modules/waybar/waybar.nix
-                # ./modules/waybar/sway.nix
               ];
 
               services.swaync.enable = false;
