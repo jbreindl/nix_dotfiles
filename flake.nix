@@ -70,24 +70,15 @@
               imports = [
                 ./modules/cli.nix
                 ./modules/desktop.nix
+                ./modules/git.nix
               ];
 
               home.packages = with pkgs; [
                 discord
                 steam
-                arduino-cli
                 signal-desktop
               ];
-              programs.git = {
-                enable = true;
-                settings = {
-                  user = {
-                    name = "Julius Breindl";
-                    email = "juliusb1616@gmail.com";
-                  };
-                  init.defaultBranch = "main";
-                };
-              };
+              programs.git.settings.user.email = "juliusb1616@gmail.com";
               programs.alacritty.enable = true;
             }
           )
@@ -112,7 +103,7 @@
               imports = [
                 ./modules/cli.nix
                 ./modules/desktop.nix
-                ./modules/kde.nix
+                ./modules/git.nix
               ];
 
               services.swaync.enable = false;
@@ -121,20 +112,15 @@
               ];
 
               targets = {
-                # Make home-manager work better on non-NixOS
                 genericLinux.enable = true;
                 genericLinux.gpu.enable = true;
               };
 
               programs.git = {
-                enable = true;
                 settings = {
                   user = {
-                    name = "Julius Breindl";
                     email = "jbr@condat.de";
                   };
-                  init.defaultBranch = "main";
-                  pull.rebase = true;
                 };
                 includes =
                   map
@@ -190,7 +176,6 @@
           (
             { ... }:
             {
-
               programs.zapp.enable = true;
               nixpkgs.config.allowUnfree = true;
               nix.settings.trusted-users = [
@@ -221,6 +206,7 @@
                       ./modules/cli.nix
                       ./modules/ghostty.nix
                       ./modules/stylix.nix
+                      ./modules/git.nix
                       ./modules/aerospace.nix
                       ./modules/ollama.nix
                       ./modules/opencode.nix
@@ -231,14 +217,9 @@
                       ghostty-bin
                     ];
                     programs.git = {
-                      enable = true;
                       settings = {
                         user = {
-                          name = "Julius Breindl";
                           email = "juliusb1616@gmail.com";
-                        };
-                        init = {
-                          defaultBranch = "main";
                         };
                       };
                       ignores = [
