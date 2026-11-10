@@ -1,17 +1,31 @@
 let
   adapter = {
-    name = "ollama";
-    model = "qwen3-coder:30b";
+    name = "lm_studio"; # must match the key under adapters.http
+    model = "openai/gpt-oss-20b";
   };
 in
 {
   plugins.codecompanion = {
     enable = true;
-    settings.interactions = {
-      chat.adapter = adapter;
-      inline.adapter = adapter;
-      cmd.adapter = adapter;
-      background.adapter = adapter;
+    settings = {
+      adapters.http.lm_studio.__raw = ''
+        function()
+          return require("codecompanion.adapters").extend("openai_compatible", {
+            formatted_name = "LM Studio",
+            env = {
+              url = "http://localhost:1234",
+              api_key = "lm-studio",
+            },
+          })
+        end
+      '';
+
+      interactions = {
+        chat.adapter = adapter;
+        inline.adapter = adapter;
+        cmd.adapter = adapter;
+        background.adapter = adapter;
+      };
     };
   };
 
