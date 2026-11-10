@@ -57,6 +57,7 @@
     # plugins with minimal config
     plugins = {
       lualine.enable = true;
+      direnv.enable = true;
       typst-vim.enable = true;
       typst-preview.enable = true;
       nvim-autopairs.enable = true;

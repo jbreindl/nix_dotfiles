@@ -15,7 +15,6 @@
     git
     zsh
     uv
-    direnv
     nixd
     nil
     nixfmt
