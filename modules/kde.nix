@@ -19,6 +19,11 @@ in
       rows = 1;
     };
 
+    shortcuts.kwin = {
+      "Switch to Screen to the Left" = "Meta+Ctrl+Alt+Left";
+      "Switch to Screen to the Right" = "Meta+Ctrl+Alt+Right";
+    };
+
     configFile = {
       kwinrc = {
         Plugins = {
@@ -59,6 +64,7 @@ in
     panels = [
       {
         location = "top";
+        screen = "all";
         widgets = [
           {
             pager.general = {
