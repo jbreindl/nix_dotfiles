@@ -23,11 +23,6 @@
           schemas = { };
         };
       };
-      rust_analyzer = {
-        enable = true;
-        installCargo = false;
-        installRustc = false;
-      };
       arduino_language_server = {
         enable = true;
         cmd = [

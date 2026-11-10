@@ -18,25 +18,25 @@
       };
     };
     # open/close the view with the session
-    extensionConfigLua = ''
-      local dap, dv = require("dap"), require("dap-view")
-      dap.listeners.before.attach["dap-view-config"] = function() dv.open() end
-      dap.listeners.before.launch["dap-view-config"] = function() dv.open() end
-      dap.listeners.before.event_terminated["dap-view-config"] = function() dv.close() end
-      dap.listeners.before.event_exited["dap-view-config"] = function() dv.close() end
-
-      -- dap-python's own .env parser leaves ''${VAR} unexpanded and pre-empts load_dotenv()
-      dap.listeners.on_config["python-env"] = function(config)
-        if config.type ~= "python" and config.type ~= "debugpy" then
-          return config
-        end
-        config = vim.deepcopy(config)
-        config.envFile = config.envFile or "/dev/null"
-        config.cwd = config.cwd or vim.fn.getcwd()
-        config.env = vim.tbl_extend("keep", config.env or {}, { PWD = config.cwd })
-        return config
-      end
-    '';
+    # extensionConfigLua = ''
+    #   local dap, dv = require("dap"), require("dap-view")
+    #   dap.listeners.before.attach["dap-view-config"] = function() dv.open() end
+    #   dap.listeners.before.launch["dap-view-config"] = function() dv.open() end
+    #   dap.listeners.before.event_terminated["dap-view-config"] = function() dv.close() end
+    #   dap.listeners.before.event_exited["dap-view-config"] = function() dv.close() end
+    #
+    #   -- dap-python's own .env parser leaves ''${VAR} unexpanded and pre-empts load_dotenv()
+    #   dap.listeners.on_config["python-env"] = function(config)
+    #     if config.type ~= "python" and config.type ~= "debugpy" then
+    #       return config
+    #     end
+    #     config = vim.deepcopy(config)
+    #     config.envFile = config.envFile or "/dev/null"
+    #     config.cwd = config.cwd or vim.fn.getcwd()
+    #     config.env = vim.tbl_extend("keep", config.env or {}, { PWD = config.cwd })
+    #     return config
+    #   end
+    # '';
   };
   plugins.dap-view.enable = true;
   plugins.dap-virtual-text.enable = true;

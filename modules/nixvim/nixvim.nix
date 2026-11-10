@@ -1,4 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
+let
+  codelldb = pkgs.vscode-extensions.vadimcn.vscode-lldb;
+  extPath = "${codelldb}/share/vscode/extensions/vadimcn.vscode-lldb";
+  libExt = if pkgs.stdenv.hostPlatform.isDarwin then "dylib" else "so";
+
+in
 {
   programs.nixvim = {
     enable = true;
@@ -78,6 +84,22 @@
           float_opts.border = "rounded";
         };
       };
+      rustaceanvim = {
+        enable = true;
+        # settings.dap.adapter = {
+        #   type = "executable";
+        #   command = "${pkgs.lldb}/bin/lldb-dap";
+        #   name = "lldb";
+        # };
+        settings = {
+          dap.adapter.__raw = ''
+            require("rustaceanvim.config").get_codelldb_adapter(
+              "${extPath}/adapter/codelldb",
+              "${extPath}/lldb/lib/liblldb.${libExt}"
+            )
+          '';
+        };
+      };
     };
 
     autoCmd = [
@@ -91,6 +113,13 @@
 
       }
     ];
-
+    extraConfigLua = ''
+      require("dap").listeners.on_config["lldb-dap-console"] = function(config)
+        if config.type ~= "lldb" then return config end
+        local c = vim.deepcopy(config)
+        c.console = "internalConsole"
+        return c
+      end
+    '';
   };
 }
