@@ -8,6 +8,7 @@
 
     settings = {
       confirm-close-surface = false;
+      shell-integration-features = "ssh-terminfo, ssh-env";
       keybind = [
         "clear"
         "ctrl+shift+c=copy_to_clipboard"
