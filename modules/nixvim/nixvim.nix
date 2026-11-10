@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 let
   codelldb = pkgs.vscode-extensions.vadimcn.vscode-lldb;
   extPath = "${codelldb}/share/vscode/extensions/vadimcn.vscode-lldb";
@@ -20,12 +24,12 @@ in
       ./mini.nix
       ./lsp.nix
       ./blink.nix
-      ./ai-code.nix
       ./neorg.nix
       ./treesitter.nix
       ./no-neck-pain.nix
       ./snacks.nix
       ./dap.nix
+      (if config.my.aiBackend == "local" then ./ai-local.nix else ./ai-code.nix)
     ];
     opts = {
       relativenumber = true;

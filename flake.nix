@@ -218,6 +218,7 @@
                       ghostty-bin
                     ];
                     programs.git.settings.user.email = "juliusb1616@gmail.com";
+                    my.aiBackend = "local";
                   };
               };
             }

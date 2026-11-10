@@ -49,6 +49,7 @@
     ./tmux.nix
     ./lazygit.nix
     ./nix.nix
+    ./profile.nix
     ./nixvim/nixvim.nix
     inputs.nixvim.homeModules.nixvim
   ];
