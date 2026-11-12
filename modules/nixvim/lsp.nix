@@ -13,6 +13,17 @@
       nixd = {
         enable = true;
       };
+      clangd = {
+        enable = true;
+        cmd = [
+          "clangd"
+          "--background-index"
+          "--clang-tidy"
+          "--header-insertion=never"
+          # nixpkgs clangd doesn't know the system libstdc++ include paths
+          "--query-driver=/usr/bin/*g++*,/usr/bin/*gcc*,/usr/local/cuda/bin/nvcc"
+        ];
+      };
       ruff.enable = true;
       ty.enable = true;
       yamlls = {
