@@ -185,6 +185,12 @@
               ];
               system.stateVersion = 5;
               system.primaryUser = "jbr";
+              system.defaults.finder = {
+                ShowExternalHardDrivesOnDesktop = false;
+                ShowHardDrivesOnDesktop = false;
+                ShowMountedServersOnDesktop = false;
+                ShowRemovableMediaOnDesktop = false;
+              };
 
               users.users.jbr = {
                 name = "jbr";
@@ -218,6 +224,10 @@
                       ghostty-bin
                       lmstudio
                     ];
+                    home.file.".cargo/config.toml".text = ''
+                      [build]
+                      target-dir = "/Volumes/build/cargo-target"
+                    '';
                     home.sessionPath = [ "$HOME/.lmstudio/bin" ];
                     programs.git.settings.user.email = "juliusb1616@gmail.com";
                     my.aiBackend = "local";
