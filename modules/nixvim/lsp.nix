@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   plugins.lsp = {
     enable = true;
@@ -15,13 +15,15 @@
       };
       clangd = {
         enable = true;
+        # keep in sync with cli.nix: 21 can't parse CUDA 13 headers
+        package = pkgs.llvmPackages_23.clang-tools;
         cmd = [
           "clangd"
           "--background-index"
           "--clang-tidy"
           "--header-insertion=never"
           # nixpkgs clangd doesn't know the system libstdc++ include paths
-          "--query-driver=/usr/bin/*g++*,/usr/bin/*gcc*,/usr/local/cuda/bin/nvcc"
+          "--query-driver=/usr/bin/*g++*,/usr/bin/*gcc*"
         ];
       };
       ruff.enable = true;

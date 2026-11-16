@@ -28,7 +28,8 @@
     claude-code
     claude-agent-acp
     arduino-language-server
-    clang-tools
+    # 23+ understands CUDA 13 headers; 21 hits a fatal error in its CUDA wrapper
+    llvmPackages_23.clang-tools
     gh
     unzip
     typst
