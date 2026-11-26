@@ -49,6 +49,7 @@
     ./helix.nix
     ./tmux.nix
     ./lazygit.nix
+    ./herdr.nix
     ./nix.nix
     ./profile.nix
     ./nixvim/nixvim.nix

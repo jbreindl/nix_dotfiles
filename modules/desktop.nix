@@ -16,9 +16,9 @@
   home.packages = with pkgs; [
     firefox
     nerd-fonts.fira-code
+    blueman
     networkmanager
     networkmanagerapplet
-    blueman
     ghostty
     alacritty
     kitty
